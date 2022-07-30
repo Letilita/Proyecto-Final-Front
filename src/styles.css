@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+html, body{
+    height:100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-x:hidden ;
+    scrollbar-width: none;
+    
+}
+
+/* Colores, estilos generales*/
+.arce{
+    color: #c7b299;
+}
+
+.verde{
+    color: rgb(140, 198, 63);
+    
+}
+
+.shadowArce {
+    text-shadow: 1px 1px 1px #8f714c;
+}
+
+button:hover{
+    color: #c7b299;
+}
+
+button{
+    text-shadow: 1px 1px 1px #8f714c;
+}
+*{
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Footer con botón editar, en todas las páginas*/
+  footer{
+    background-color: transparent; 
+}
+.derechos{
+  
+    color: #8cc63f;
+}
+
+
+.borde:active{
+    border: solid;
+    border-color: #8cc63f;
+}
+.borde:visited{
+    border: none;
+    text-decoration: none;
+    box-shadow: 0;
+}
+
+/* Portada*/
+
+#logo{
+    width:30px;
+}
+
+/*Iconos de redes sociales de  la portada*/
+.hoverVerde:hover {
+    font-size:30px;
+    color: #8cc63f;
+}
+i{
+    color: white;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+    background: black
+}
+
+
+
+
+
+
+
+

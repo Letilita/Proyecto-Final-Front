@@ -1,0 +1,56 @@
+<!-- Seción 5 Contacto-->
+<div id="section5" class="container-fluid">
+   
+    <div class="row">
+      <div class="col-10">
+        <div class="container mt-3">
+          <h2>Dejame un Mensaje</h2>
+          <form action="leticia.portillo.r@gmail.com">
+            <div class="mb-3 mt-3">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Dirección de correo electrónico" name="email">
+            </div>
+            <div class="mb-3">
+              <label for="nombre">Nombre:</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Ingresá tu nombre" name="nombre">
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="comment">Mensaje:</label>
+              <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-dark">Enviar</button>
+          </form>
+        </div>
+        
+      </div>
+      <div class="col-1">
+        <div class="d-flex flex-column justify-content-between mt-5 pt-5 me-3">
+          <div class="my-3">
+            <a [href]="miPorfolio.linkIG" target="_blank">
+              <i class="fab fa-instagram iconoContacto"></i>
+            </a>
+          </div>
+          <div class="my-3">
+            <a [href]="miPorfolio.linkWP" target="_blank">
+              <i class="fab fa-whatsapp iconoContacto"></i>
+            </a>
+          </div>
+          <div class="my-3">
+            <a [href]="miPorfolio.linkGH" target="_blank">
+              <i class="fab fa-github iconoContacto"></i>
+            </a>
+          </div>
+          <div class="my-3">
+            <a [href]="miPorfolio.linkIn" target="_blank">
+              <i class="fab fa-linkedin iconoContacto"></i>
+            </a>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-1">
+        <i class="fa-regular fa-pen-to-square m-2"></i>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+#section1{
+    
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */    
+    min-height: 100vh;
+    padding:100px 20px;  
+    width: 100%; 
+}
+
+.edicion{
+    font-size: 0.7rem;
+    margin-left: 2rem
+}
+
+.edicionLinks{
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    padding-bottom: 1rem;
+}

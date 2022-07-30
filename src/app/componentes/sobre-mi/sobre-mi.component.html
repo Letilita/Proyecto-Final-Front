@@ -1,0 +1,128 @@
+<!-- Seción 2 Sobre mí-->
+<div id="section2" class="container-fluid mb-0">   
+     
+    <!-- Acá se genera un espacio que se va a ir rellenando según el botón que se aprete-->
+    <div class="row mt-5 mb-0 pb-0 mx-1">
+      <div class="col-md-9 tab-content mb-0 pt-0 pb-0">
+        <!-- Lo que aparece por default. Id= sobreMí-->
+        <div id="sobreMi" class="container tab-pane active ocupa-60">
+          <div class="d-flex">
+            <h1>Sobre mí</h1>
+            <i class="fa-regular fa-pen-to-square negra m-3 text-success"></i>
+          </div>
+          <div class="mt-3">
+            <p [innerHTML]= descripcion>                            
+            </p> 
+            <br>
+        </div>
+        </div>
+        <!-- Relleno que aparece si se apreta experiencia-->
+        <ul id="experiencia" class="container tab-pane fade m-0 p-0 ocupa-60" >
+          <h2 class="mt-0">Experiencia Laboral</h2>
+          <li *ngFor="let trabajo of experiencias" class="mb-2" style="list-style-type: none;" >
+            <div class="row g-0 tarjeta mb-4">
+              <div class="col-md-1">
+                <img [src]="trabajo.logoEmpresa" class="img-fluid rounded logoEnTarjeta mt-3 mb-3" alt="imagen-logo"> 
+              </div>
+              <div class="col-md-8">
+                <div class="card-body justify-content-start">
+                  <h5 class="card-title">{{trabajo.Empresa}}</h5>
+                  <ul class="card-text small">
+                    <li *ngFor="let puesto of trabajo.puesto">
+                      {{puesto}}
+                    </li>
+                    <p class="card-text text-end"><small class="text-muted">{{trabajo.inicio}} - {{trabajo.fin}}</small></p>
+                  </ul>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end col-2 mt-2">
+                <i class="fa-regular fa-trash-can text-muted m-2"></i>
+                <i class="fa-regular fa-pen-to-square text-muted m-2"></i>
+              </div>
+            </div>
+          </li>
+          <div class="d-flex justify-content-center">
+            <i class="fa-regular fa-plus icono-principal p-2 text-muted float-end"></i>
+          </div> 
+        </ul>
+        
+          <!-- Relleno que aparece si se apreta formación-->
+      <div id="formacion" class="container tab-pane fade ocupa-60 m-0 p-0">
+        <h2>Formación</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="border border-1 border-white p-3 m-2 mb-4" >
+              <div class="d-flex justify-content-between">
+                <h4>Certificaciones</h4>
+                <i class="fa-regular fa-plus p-2 m-1 mas-en-educacion"></i>
+              </div>
+              <div class="d-flex m-2" *ngFor="let curso of certificaciones">
+                <div>
+                <img [src]="curso.logoInstitucion" alt="Logo UBA" class= "logoEducacion">
+                </div>
+                <div class="pt-2">
+                  <div class="d-flex justify-content-between">
+                    <h6>{{curso.institucion}}</h6>
+                    <i class="fa-regular fa-pen-to-square text-muted m-2"></i>
+                    <i class="fa-regular fa-trash-can text-muted m-2 "></i>
+                  </div>
+                  <p class="fw-bold">{{curso.titulo}}</p>
+                  <p class="chico">{{curso.descripcion}}</p>
+                  <p class="text-muted muyChico">{{curso.inicio}} - {{curso.fin}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="border border-1 border-white p-3 m-2">
+              <div class="d-flex justify-content-between">
+                <h4>Educación</h4>
+                <i class="fa-regular fa-plus p-2 m-1 mas-en-educacion"></i>
+              </div>
+              <div class="d-flex m-3" *ngFor="let estudio of formacion">
+                <div>
+                <img [src]="estudio.logoInstitucion" alt="Logo UBA" class= "logoEducacion">
+                </div>
+                <div class="p-2">
+                  <div class="d-flex justify-content-between">
+                    <h6>{{estudio.institucion}}</h6>
+                    <i class="fa-regular fa-pen-to-square text-muted m-2"></i>
+                    <i class="fa-regular fa-trash-can text-muted m-2 "></i>
+                  </div>
+                  <p class="chico">{{estudio.titulo}}</p>
+                  <p class="text-muted muyChico">{{estudio.descripcion}} {{estudio.inicio}} - {{estudio.fin}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column justify-content-between mt-5 mb-0 pb-0" > 
+      <!-- Acá está la barra navegadora de la sección. Según qué elemento se cliequea es lo que se muestra-->
+      <div class="d-flex flex-column justify-content-between mt-3 mx-1" id="navSobremi">
+    
+        <ul class="nav nav-tabs flex-column" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link text-muted active" data-bs-toggle="tab" href="#sobreMi">¿Quién soy?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-muted" data-bs-toggle="tab" href="#experiencia">Experiencia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-muted" data-bs-toggle="tab" href="#formacion">Formación</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-muted"  href="assets/CV_Leticia Portillo_español.pdf" download>CV en pdf</a>
+          </li>
+        </ul>          
+      </div>
+      <!-- Acá la foto-->
+      <div id="divImagen">
+        <i class="fa-regular fa-pen-to-square verde  text-success float-end"></i>
+          <img [src]="foto" alt="Foto Leticia Portillo" class="rounded img-fluid align-items-end mb-0 pb-0" id="imgLeti">   
+   </div> 
+  </div>
+</div>
+
+</div>

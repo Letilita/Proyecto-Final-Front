@@ -1,0 +1,75 @@
+ <!-- Barra navegadora fija arriba que colapsa cuando se ve de un móvil -->
+ <router-outlet></router-outlet>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <div class="container-fluid">
+          <a class="navbar-brand" [routerLink]="'/'">
+              <img src="assets/Logo_LP.png" alt="Avatar Logo" id="logo"> 
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar" style="width: 100%">
+              <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="'/sobre-mi'">Sobre mí</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="'/proyectos'">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="'/conocimientos'">Conocimientos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="'/contacto'">Contacto</a>
+                </li>
+              </ul>
+                <div class="float-sm-end" >
+                    <button type="button" class="btn btn-outline-secondary btn-sm m-2 float-sm-end" data-bs-toggle="modal" data-bs-target="#myModal">Login</button>
+                </div>
+          </div>
+      </div>
+  </nav>
+
+  <app-login></app-login>
+
+  <!--
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-white">
+  
+        
+        <div class="modal-header">
+          <h5 class="modal-title">Ingresá tus credenciales</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="pwd" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+          </div>
+        </div>
+  
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Login</button>
+        </div>
+  
+      </div>
+    </div>
+  </div> -->
+  <!-- <app-portada></app-portada>
+  <app-sobre-mi></app-sobre-mi>
+
+  <app-proyectos></app-proyectos>
+
+  <app-conocimientos></app-conocimientos>
+
+  <app-contacto></app-contacto>
+   -->

@@ -1,0 +1,81 @@
+/* Seciión2 Sobre mí*/
+#section2{
+    margin: 0;    
+    background-color: #e5e1e1;
+    color: black; 
+    padding: 40px 0px 0px 20px;
+    font-family: 'Montserrat', sans-serif;    
+    min-height: 100vh;   
+}
+
+.card{
+    background-color: #e5e1e1;  
+    width: 95%;
+}
+
+
+.ocupa-60{
+    /* width: 70vw; */
+    padding-top: 0px;
+    margin-top: 0px;
+
+}
+
+.card-title{
+    font-size: 1.2rem;
+}
+
+.card-text{
+    font-size: 0.9rem;
+}
+
+.chico{
+    font-size: 0.8rem;
+}
+
+.muyChico{
+    font-size: 0.6rem;
+}
+
+.logoEducacion{
+    width: 3rem;
+}
+
+#divImagen{
+    grid-area: foto;
+}
+
+@media only screen and (max-width: 600px){
+    #divImagen{
+        align-content: flex-end;
+    }
+}
+.logoEnTarjeta{
+    width: 4rem;
+}
+
+.tarjeta{
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    border-radius: 1%;
+    width: 70%;
+    margin:auto;
+}
+
+i {
+    font-size: 0.75rem;
+}
+
+.icono-principal{
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    
+}
+
+.mas-en-educacion{
+    font-size: 0.8rem;
+    color: black;
+    font-weight: bold;
+    margin: auto;
+}
