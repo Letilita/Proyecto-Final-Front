@@ -9,6 +9,7 @@ import { Usuario } from '../models/Usuario.model';
 })
 export class PortadaService {
   private apiServerUrl = environment.apiBaseUrl;
+  
 
   constructor(private http: HttpClient) { }
 

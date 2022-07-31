@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriaSkill } from 'src/app/models/CategoriaSkill.model';
+import { Skill } from 'src/app/models/Skill.model';
 import { DataService } from 'src/app/servicios/data.service';
+import { SkillService } from 'src/app/servicios/skill.service';
 
 @Component({
   selector: 'app-conocimientos',
@@ -8,16 +11,31 @@ import { DataService } from 'src/app/servicios/data.service';
 })
 export class ConocimientosComponent implements OnInit {
 
-  conocimientos: any;
+  conocimientos: Skill[]= [];
+  categorias: CategoriaSkill[] = [];
+  conocimientosFiltrados: Skill[] = [];
 
-  constructor(private datos: DataService) { }
+  constructor(private skillService: SkillService) { }
 
   ngOnInit(): void {
-      this.datos.obtenerDatos().subscribe(data => {    
-      this.conocimientos = data.conocimientos;
+      this.skillService.getSkills().subscribe(data => {    
+      this.conocimientos = data;
       console.log(this.conocimientos);
       
   } );
+
+      this.skillService.getCateSkills().subscribe(data => {    
+      this.categorias = data;
+      console.log(this.filtrarPorCategoria(6));
+      
+  } );
+  }
+
+  public filtrarPorCategoria(id: number): Skill[]{
+    this.conocimientosFiltrados = this.conocimientos.filter(skill => skill.catSkill.idCatSkill==id)
+    return this.conocimientosFiltrados;
+
+
   }
 
 }

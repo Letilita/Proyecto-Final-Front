@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/Usuario.model';
 import { DataService } from 'src/app/servicios/data.service';
+import { PortadaService } from 'src/app/servicios/portada.service';
 
 @Component({
   selector: 'app-contacto',
@@ -8,15 +10,15 @@ import { DataService } from 'src/app/servicios/data.service';
 })
 export class ContactoComponent implements OnInit {
 
-  miPorfolio: any;
+  public usuario: Usuario | undefined;
 
-  constructor(private datos: DataService) { }
+  constructor(private usuarioService: PortadaService) { }
 
   ngOnInit(): void {
 
-    this.datos.obtenerDatos().subscribe(data => {
+    this.usuarioService.getUsuario().subscribe(data => {
       
-      this.miPorfolio = data;
+      this.usuario = data;
 
   } );
     

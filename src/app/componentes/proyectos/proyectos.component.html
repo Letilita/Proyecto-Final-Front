@@ -17,17 +17,17 @@
           <!-- The slideshow/carousel -->
           <div class="carousel-inner" style="height:fit-content" >
             <div *ngFor="let proyecto of proyectos; first as isFirst" class="carousel-item active" [ngClass]="{'active': isFirst }">
-              <img [src]="proyecto.imagen" [alt]="proyecto.nombre" class="d-block imagenCarrousel">
+              <img [src]="proyecto.imagenProy" [alt]="proyecto.nombreProy" class="d-block imagenCarrousel">
               <div class="carousel-caption">
                 <div class="d-flex justify-content-end">
                   <i class="fa-regular fa-trash-can m-2"></i>
                   <i class="fa-regular fa-pen-to-square m-2"></i>
                 </div>
-                  <h3>{{proyecto.nombre}}</h3> 
+                  <h3>{{proyecto.nombreProy}}</h3> 
                                 
-                <p>{{proyecto.descripcion}}</p>
+                <p>{{proyecto.descripcionProy}}</p>
                 
-                  <a [href]="proyecto.link" target="_blank" class="btn btn-sm text-white">
+                  <a [href]="proyecto.linkProy" target="_blank" class="btn btn-sm text-white">
                     Ver en GitHub  <i class="fab fa-github lead text-white"></i>
                   </a>
                   
