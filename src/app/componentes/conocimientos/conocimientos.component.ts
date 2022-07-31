@@ -14,6 +14,7 @@ export class ConocimientosComponent implements OnInit {
   conocimientos: Skill[]= [];
   categorias: CategoriaSkill[] = [];
   conocimientosFiltrados: Skill[] = [];
+  
 
   constructor(private skillService: SkillService) { }
 

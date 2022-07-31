@@ -38,7 +38,7 @@ export class SkillService {
 
   public updateCateSkill(cateSkill: CategoriaSkill): Observable<any>{
 
-    return this.http.put<Skill>(`${this.apiServerUrl}/Skills/editar`, cateSkill);
+    return this.http.put<CategoriaSkill>(`${this.apiServerUrl}/CategoriasSkills/editar`, cateSkill);
   } 
 
   public createCateSkill(cateSkill: CategoriaSkill): Observable<any>{
