@@ -5,17 +5,8 @@
     <div class="row mt-5 mb-0 pb-0 mx-1">
       <div class="col-md-9 tab-content mb-0 pt-0 pb-0">
         <!-- Lo que aparece por default. Id= sobreMí-->
-        <div id="sobreMi" class="container tab-pane active ocupa-60">
-          <div class="d-flex">
-            <h1>Sobre mí</h1>
-            <i class="fa-regular fa-pen-to-square negra m-3 text-success"></i>
-          </div>
-          <div class="mt-3">
-            <p [innerHTML]= descripcion>                            
-            </p> 
-            <br>
-        </div>
-        </div>
+        <app-descripcion-sobre-mi></app-descripcion-sobre-mi>
+        
         <!-- Relleno que aparece si se apreta experiencia-->
         <ul id="experiencia" class="container tab-pane fade m-0 p-0 ocupa-60" >
           <h2 class="mt-0">Experiencia Laboral</h2>

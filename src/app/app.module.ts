@@ -11,6 +11,9 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './componentes/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { EducacionComponent } from './componentes/educacion/educacion.component';
+import { ExperienciaLaboralComponent } from './componentes/experiencia-laboral/experiencia-laboral.component';
+import { DescripcionSobreMiComponent } from './componentes/descripcion-sobre-mi/descripcion-sobre-mi.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { FormsModule } from '@angular/forms';
     SobreMiComponent,
     ConocimientosComponent,
     ContactoComponent,
-    LoginComponent
+    LoginComponent,
+    EducacionComponent,
+    ExperienciaLaboralComponent,
+    DescripcionSobreMiComponent
     
   ],
   imports: [

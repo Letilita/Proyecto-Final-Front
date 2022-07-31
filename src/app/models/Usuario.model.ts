@@ -10,6 +10,7 @@ export interface Usuario{
     linkGH: String ;
     linkIG: String ;
     imagenPersonal: String ;
+    descripcion: String;
 
     
 }
