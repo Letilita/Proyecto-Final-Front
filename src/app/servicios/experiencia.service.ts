@@ -26,7 +26,7 @@ export class ExperienciaService {
     return this.http.post<Experiencia>(this.apiServerUrl + '/Experiencia/agregar', expLab);
   }
 
-  public deleteProyecto(id: number): Observable<void>{
+  public deleteExperiencia(id: number): Observable<void>{
     return this.http.delete<void>(this.apiServerUrl + '/Experiencia/eliminar/' + id);
   }
 

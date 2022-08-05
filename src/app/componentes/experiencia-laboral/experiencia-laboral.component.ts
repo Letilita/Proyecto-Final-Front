@@ -11,6 +11,7 @@ export class ExperienciaLaboralComponent implements OnInit {
 
   experiencias: Experiencia [] = [];
   puestos: String= ""
+  trabajoActual?: Experiencia
 
   constructor(private experienciaService: ExperienciaService) { }
 
@@ -29,4 +30,9 @@ export class ExperienciaLaboralComponent implements OnInit {
   return cadena.split(",");
  }
 
+//  Esta función está para poder pasarle al modal la experiencia de cada iteración desde la vista. Hay que ver si lo puedo resolver de otra manera
+ guardarTrabajo(trabajo: Experiencia){
+  this.trabajoActual = trabajo;
+ }
 }
+

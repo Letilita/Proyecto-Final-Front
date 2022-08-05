@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { ExperienciaLaboralComponent } from './componentes/experiencia-laboral/experiencia-laboral.component';
 import { DescripcionSobreMiComponent } from './componentes/descripcion-sobre-mi/descripcion-sobre-mi.component';
+import { BarraNavegadoraComponent } from './componentes/barra-navegadora/barra-navegadora.component';
+import { ExperienciaNuevaComponent } from './componentes/experiencia-nueva/experiencia-nueva.component';
+import { BorrarExperienciaComponent } from './componentes/borrar-experiencia/borrar-experiencia.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { DescripcionSobreMiComponent } from './componentes/descripcion-sobre-mi/
     LoginComponent,
     EducacionComponent,
     ExperienciaLaboralComponent,
-    DescripcionSobreMiComponent
+    DescripcionSobreMiComponent,
+    BarraNavegadoraComponent,
+    ExperienciaNuevaComponent,
+    BorrarExperienciaComponent
     
   ],
   imports: [

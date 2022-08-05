@@ -1,28 +1,64 @@
-<ul  >
-    <h2 class="mt-0">Experiencia Laboral</h2>
-    <li *ngFor="let trabajo of experiencias" class="mb-2" style="list-style-type: none;" >
-      <div class="row g-0 tarjeta mb-4">
-        <div class="col-md-1">
-          <img [src]="trabajo.logoEmpresa" class="img-fluid rounded logoEnTarjeta mt-3 mb-3" alt="imagen-logo"> 
-        </div>
-        <div class="col-md-8">
-          <div class="card-body justify-content-start">
-            <h5 class="card-title roboto fw-bold">{{trabajo.empresa}}</h5>
-            <ul class="card-text small roboto">
-              <li class="roboto" *ngFor="let puesto of convertirEnArray(trabajo.puesto)" >
-                {{puesto}}
-              </li>
-              <p class="card-text text-end"><small class="text-muted roboto">{{trabajo.inicio}} - {{trabajo.fin}}</small></p>
-            </ul>
-          </div>
-        </div>
-        <div class="d-flex justify-content-end col-2 mt-2">
-          <i class="fa-regular fa-trash-can text-muted m-2"></i>
-          <i class="fa-regular fa-pen-to-square text-muted m-2"></i>
+<ul>
+  <h2 class="mt-0">Experiencia Laboral</h2>
+  <li *ngFor="let trabajo of experiencias" class="mb-2" style="list-style-type: none;">
+    <div class="row g-0 tarjeta mb-4">
+      <div class="col-md-1">
+        <img [src]="trabajo.logoEmpresa" class="img-fluid rounded logoEnTarjeta mt-3 mb-3" alt="imagen-logo">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body justify-content-start">
+          <h5 class="card-title roboto fw-bold">{{trabajo.empresa}}</h5>
+          <ul class="card-text small roboto">
+            <li class="roboto" *ngFor="let puesto of convertirEnArray(trabajo.puesto)">
+              {{puesto}}
+            </li>
+            <p class="card-text text-end"><small class="text-muted roboto">{{trabajo.inicio}} - {{trabajo.fin}}</small>
+            </p>
+          </ul>
         </div>
       </div>
-    </li>
-    <div class="d-flex justify-content-center">
-      <i class="fa-regular fa-plus icono-principal p-2 text-muted float-end"></i>
-    </div> 
-  </ul>
+      <div class="d-flex justify-content-end col-2 mt-2">
+        <i class="fa-regular fa-trash-can text-muted m-2" data-bs-toggle="modal" data-bs-target="#borrarExp"
+          (click)="guardarTrabajo(trabajo)"></i>
+        <i class="fa-regular fa-pen-to-square text-muted m-2"></i>
+      </div>
+
+      <!-- <app-borrar-experiencia id="borrarExp"  class="modal" [experienciaABorrar]="trabajoActual"></app-borrar-experiencia> -->
+      <div id="borrarExp" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content bg-dark text-white">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h5 class="modal-title">Eliminar experiencia</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+
+            <div class="modal-body">
+              <h3>{{trabajo.puesto}} {{trabajo.id}} </h3>
+              <p>¿Está seguro que desea borrar esta experiencia?</p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Borrar experiencia</button>
+            </div>
+
+          </div>
+        </div>
+
+
+        
+      </div>
+    </div>
+  </li>
+  <div class="d-flex justify-content-center">
+    <i class="fa-regular fa-plus icono-principal p-2 text-muted float-end" data-bs-toggle="modal"
+      data-bs-target="#agregarExp"></i>
+  </div>
+</ul>
+
+<app-experiencia-nueva></app-experiencia-nueva>

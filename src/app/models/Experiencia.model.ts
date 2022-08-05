@@ -1,5 +1,5 @@
 export interface Experiencia {
-    id: number;
+    id?: number;
     puesto: String;    
     empresa: String ;
     logoEmpresa: String ;
