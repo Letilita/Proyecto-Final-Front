@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PortadaComponent } from './componentes/portada/portada.component';
@@ -14,7 +13,10 @@ import { FormsModule } from '@angular/forms';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { ExperienciaLaboralComponent } from './componentes/experiencia-laboral/experiencia-laboral.component';
 import { DescripcionSobreMiComponent } from './componentes/descripcion-sobre-mi/descripcion-sobre-mi.component';
-
+import { BarraNavegadoraComponent } from './componentes/barra-navegadora/barra-navegadora.component';
+import { ExperienciaNuevaComponent } from './componentes/experiencia-nueva/experiencia-nueva.component';
+import { BorrarExperienciaComponent } from './componentes/borrar-experiencia/borrar-experiencia.component';
+//import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,15 +29,18 @@ import { DescripcionSobreMiComponent } from './componentes/descripcion-sobre-mi/
     LoginComponent,
     EducacionComponent,
     ExperienciaLaboralComponent,
-    DescripcionSobreMiComponent
+    DescripcionSobreMiComponent,
+    BarraNavegadoraComponent,
+    ExperienciaNuevaComponent,
+    BorrarExperienciaComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-    
+    FormsModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
