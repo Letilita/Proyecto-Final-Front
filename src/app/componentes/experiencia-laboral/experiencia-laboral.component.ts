@@ -20,19 +20,19 @@ export class ExperienciaLaboralComponent implements OnInit {
 
 
       this.experiencias = data;
-      console.log(this.experiencias);
 
 
     })
   }
   public convertirEnArray(cadena: String): String[] {
-    console.log(cadena.split(","))
+    
     return cadena.split(",");
   }
 
   //  Esta función está para poder pasarle al modal la experiencia de cada iteración desde la vista. Hay que ver si lo puedo resolver de otra manera
   guardarTrabajo(trabajo: Experiencia) {
     this.trabajoActual = trabajo;
+    console.log(trabajo)
   }
 
 
@@ -41,7 +41,6 @@ renderizar(){
 
 
     this.experiencias = data;
-    console.log(this.experiencias);
   })}
 
 }

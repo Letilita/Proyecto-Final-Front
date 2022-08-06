@@ -23,36 +23,8 @@
         <i class="fa-regular fa-pen-to-square text-muted m-2"></i>
       </div>
 
-      <!-- <app-borrar-experiencia id="borrarExp"  class="modal" [experienciaABorrar]="trabajoActual"></app-borrar-experiencia> -->
-      <div id="borrarExp" class="modal">
-        <div class="modal-dialog">
-          <div class="modal-content bg-dark text-white">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h5 class="modal-title">Eliminar experiencia</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-
-            <!-- Modal body -->
-
-            <div class="modal-body">
-              <h3>{{trabajo.puesto}} {{trabajo.id}} </h3>
-              <p>¿Está seguro que desea borrar esta experiencia?</p>
-            </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Borrar experiencia</button>
-            </div>
-
-          </div>
-        </div>
-
-
-        
-      </div>
+      <app-borrar-experiencia (onDeleteEvent)="renderizar()" id="borrarExp"  class="modal" [experienciaABorrar]="trabajoActual"></app-borrar-experiencia>
+      
     </div>
   </li>
   <div class="d-flex justify-content-center">
