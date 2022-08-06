@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 import { Experiencia } from 'src/app/models/Experiencia.model';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-experiencia-nueva',
@@ -15,7 +16,7 @@ export class ExperienciaNuevaComponent implements OnInit {
   inicioNuevo: String = "";
   finNuevo: String = "";
 
-
+  @Output() onCreateEvent = new EventEmitter();
 
   constructor(private experienciaService: ExperienciaService, private router: Router) { }
 
@@ -30,6 +31,7 @@ export class ExperienciaNuevaComponent implements OnInit {
       const nuevaExperiencia: Experiencia = { puesto: puestoNuevo, empresa: empresaNueva, logoEmpresa: logoEmpresaNuevo, inicio: inicioNuevo, fin: finNuevo };
       this.experienciaService.createExperiencia(nuevaExperiencia).subscribe(data => {
         alert("Experiencia añadida");
+        this.onCreateEvent.emit();
       }, err => {
         alert("Algo salió mal")
       }
