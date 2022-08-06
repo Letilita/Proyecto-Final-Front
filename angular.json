@@ -103,5 +103,8 @@
       }
     }
   },
-  "defaultProject": "porfolio-LP"
+  "defaultProject": "porfolio-LP",
+  "cli": {
+    "analytics": false
+  }
 }
