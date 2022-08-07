@@ -13,6 +13,7 @@ export class EducacionComponent implements OnInit {
   educaciones: Educacion[]= [];
   categorias: CategoriaEducacion[] = [];
   educacionesFiltradas: Educacion[] = [];
+  educacionActual?: Educacion
 
   constructor(private educacionService: EducacionService) { }
 
@@ -20,6 +21,7 @@ export class EducacionComponent implements OnInit {
 
       this.educacionService.getEducaciones().subscribe(data => {    
       this.educaciones = data;
+      console.log(this.educaciones)
       
       
   } );
@@ -36,6 +38,28 @@ export class EducacionComponent implements OnInit {
     this.educacionesFiltradas = this.educaciones.filter(educacion => educacion.catEdu.idCatEdu==id)
     return this.educacionesFiltradas;
 
+
+  }
+
+  renderizar(){
+    this.educacionService.getEducaciones().subscribe(data => {    
+      this.educaciones = data;
+      console.log(this.educaciones)
+      
+      
+  } );
+
+      this.educacionService.getCateEducacion().subscribe(data => {    
+      this.categorias = data;
+      
+      
+  } );
+
+
+  }
+
+  guardarEducacion(edu: Educacion) {
+    this.educacionActual=edu;
 
   }
 

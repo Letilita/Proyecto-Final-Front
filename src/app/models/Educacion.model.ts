@@ -1,7 +1,7 @@
 import { CategoriaEducacion } from "./CategoriaEducacion.model";
 
 export interface Educacion{
-    idEdu:number;
+    idEdu?:number;
     institucion: String ;
     logoInstitucion: String ;
     titulo: String ;

@@ -18,6 +18,9 @@ import { ExperienciaNuevaComponent } from './componentes/experiencia-nueva/exper
 import { BorrarExperienciaComponent } from './componentes/borrar-experiencia/borrar-experiencia.component';
 import { EditarExperienciaComponent } from './componentes/editar-experiencia/editar-experiencia.component';
 import { EditarDescripcionComponent } from './componentes/editar-descripcion/editar-descripcion.component';
+import { EducacionNuevaComponent } from './componentes/educacion-nueva/educacion-nueva.component';
+import { BorrarEducacionComponent } from './componentes/borrar-educacion/borrar-educacion.component';
+import { EditarEducacionComponent } from './componentes/editar-educacion/editar-educacion.component';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -36,7 +39,10 @@ import { EditarDescripcionComponent } from './componentes/editar-descripcion/edi
     ExperienciaNuevaComponent,
     BorrarExperienciaComponent,
     EditarExperienciaComponent,
-    EditarDescripcionComponent
+    EditarDescripcionComponent,
+    EducacionNuevaComponent,
+    BorrarEducacionComponent,
+    EditarEducacionComponent
     
   ],
   imports: [
