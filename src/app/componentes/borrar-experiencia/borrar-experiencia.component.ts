@@ -7,6 +7,7 @@ import { ExperienciaService } from 'src/app/servicios/experiencia.service';
   templateUrl: './borrar-experiencia.component.html',
   styleUrls: ['./borrar-experiencia.component.css']
 })
+
 export class BorrarExperienciaComponent implements OnInit {
 
   @Input() experienciaABorrar?: Experiencia
@@ -16,13 +17,13 @@ export class BorrarExperienciaComponent implements OnInit {
   
   ngOnInit(): void {
     
+    
   }
 
   onDelete():void{
+    
     if(this.experienciaABorrar?.idExp!== undefined){
-    this.experienciaService.deleteExperiencia(this.experienciaABorrar.idExp).subscribe(data => {
-      
-      alert("Experiencia borrada")
+    this.experienciaService.deleteExperiencia(this.experienciaABorrar.idExp).subscribe(data => {      
       this.onDeleteEvent.emit();
   }, err =>{alert("Algo salió mal")} )
  

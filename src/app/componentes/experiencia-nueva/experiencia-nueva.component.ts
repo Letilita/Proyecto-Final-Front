@@ -30,7 +30,7 @@ export class ExperienciaNuevaComponent implements OnInit {
       const { puestoNuevo, empresaNueva, logoEmpresaNuevo, inicioNuevo, finNuevo } = this;
       const nuevaExperiencia: Experiencia = { puesto: puestoNuevo, empresa: empresaNueva, logoEmpresa: logoEmpresaNuevo, inicio: inicioNuevo, fin: finNuevo };
       this.experienciaService.createExperiencia(nuevaExperiencia).subscribe(data => {
-        alert("Experiencia añadida");
+        
         this.onCreateEvent.emit();
       }, err => {
         alert("Algo salió mal")

@@ -20,13 +20,13 @@ export class EducacionComponent implements OnInit {
 
       this.educacionService.getEducaciones().subscribe(data => {    
       this.educaciones = data;
-      console.log(this.educaciones);
+      
       
   } );
 
       this.educacionService.getCateEducacion().subscribe(data => {    
       this.categorias = data;
-      console.log(this.filtrarPorCategoria(6));
+      
       
   } );
 

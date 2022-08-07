@@ -18,7 +18,7 @@ export class DescripcionSobreMiComponent implements OnInit {
     this.usuarioService.getUsuario().subscribe(data => {
       
       this.descripcion=data.descripcion;
-      console.log(this.usuario);
+     
   })
   }
 }

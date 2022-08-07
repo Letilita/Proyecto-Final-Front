@@ -32,7 +32,6 @@ export class ExperienciaLaboralComponent implements OnInit {
   //  Esta función está para poder pasarle al modal la experiencia de cada iteración desde la vista. Hay que ver si lo puedo resolver de otra manera
   guardarTrabajo(trabajo: Experiencia) {
     this.trabajoActual = trabajo;
-    console.log(trabajo)
   }
 
 
