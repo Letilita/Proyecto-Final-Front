@@ -21,4 +21,11 @@ export class DescripcionSobreMiComponent implements OnInit {
      
   })
   }
+  renderizar(){
+    this.usuarioService.getUsuario().subscribe(data => {
+      
+      this.descripcion=data.descripcion;
+    })
+
+  }
 }

@@ -17,6 +17,7 @@ import { BarraNavegadoraComponent } from './componentes/barra-navegadora/barra-n
 import { ExperienciaNuevaComponent } from './componentes/experiencia-nueva/experiencia-nueva.component';
 import { BorrarExperienciaComponent } from './componentes/borrar-experiencia/borrar-experiencia.component';
 import { EditarExperienciaComponent } from './componentes/editar-experiencia/editar-experiencia.component';
+import { EditarDescripcionComponent } from './componentes/editar-descripcion/editar-descripcion.component';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -34,7 +35,8 @@ import { EditarExperienciaComponent } from './componentes/editar-experiencia/edi
     BarraNavegadoraComponent,
     ExperienciaNuevaComponent,
     BorrarExperienciaComponent,
-    EditarExperienciaComponent
+    EditarExperienciaComponent,
+    EditarDescripcionComponent
     
   ],
   imports: [
