@@ -1,0 +1,8 @@
+* {
+    font-size: 0.8rem;
+}
+
+input:invalid{
+
+    background-color: rgb(222, 109, 78);
+}

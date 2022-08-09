@@ -21,6 +21,7 @@ import { EditarDescripcionComponent } from './componentes/editar-descripcion/edi
 import { EducacionNuevaComponent } from './componentes/educacion-nueva/educacion-nueva.component';
 import { BorrarEducacionComponent } from './componentes/borrar-educacion/borrar-educacion.component';
 import { EditarEducacionComponent } from './componentes/editar-educacion/editar-educacion.component';
+import { EditarUsuarioComponent } from './componentes/editar-usuario/editar-usuario.component';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -42,7 +43,8 @@ import { EditarEducacionComponent } from './componentes/editar-educacion/editar-
     EditarDescripcionComponent,
     EducacionNuevaComponent,
     BorrarEducacionComponent,
-    EditarEducacionComponent
+    EditarEducacionComponent,
+    EditarUsuarioComponent
     
   ],
   imports: [

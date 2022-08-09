@@ -23,11 +23,18 @@ export class PortadaComponent implements OnInit {
     this.portadaService.getUsuario().subscribe(data => {
       
       this.usuario=data;
-      console.log(this.usuario);
+      
      
   } );
   
   
+  }
+
+  renderizar(){
+    this.portadaService.getUsuario().subscribe(data => {
+      
+      this.usuario=data;
+    })
   }
 
 }

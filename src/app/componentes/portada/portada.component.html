@@ -1,13 +1,15 @@
 <!-- Portada - importante que ocupe toda la pantalla -->
 <div id="section1" class="d-flex align-items-center justify-content-center bg-dark text-white text-center" style="background-image: url({{usuario?.backgroundImage}})">
     <div class="mx-auto">
+        <div class="mb-2">
+            <i class="fa-regular fa-pen-to-square m-3 verde shadowArce edicion" data-bs-toggle="modal"
+            data-bs-target="#editarUsu" ></i>
+        </div>
         <div class="d-flex mx-auto text-center">
-            <h1 class="verde shadowArce text-center mx-auto">{{usuario?.nombre}}</h1>
-            <i class="fa-regular fa-pen-to-square m-3 verde shadowArce edicion" ></i>
+            <h1 class="verde shadowArce text-center mx-auto">{{usuario?.nombre}}</h1>            
         </div>
         <div class="d-flex mx-auto text-center" >
-            <p class="lead shadowArce mb-4 text-center mx-auto">{{usuario?.profesion}}</p>
-            <i class="fa-regular fa-pen-to-square m-2  shadowArce edicion " ></i>
+            <p class="lead shadowArce mb-4 text-center mx-auto">{{usuario?.profesion}}</p>            
         </div>
         <ul class="list-inline">
             <li class="list-inline-item">
@@ -30,10 +32,14 @@
                 </a>
             </li>
             <li class="list-inline-item">
-                
-                <i class="fa-regular fa-pen-to-square mb-2 shadowArce edicion edicionLinks" ></i>
+                <a [href]="usuario?.linkIG" target="_blank">
+                    <i class="fab fa-instagram lead hoverVerde"></i>
+                </a>
             
             </li>
         </ul>
     </div>
+
+    <app-editar-usuario id="editarUsu"  class="modal" (onEditEvent)="renderizar()"></app-editar-usuario>
+
 </div>

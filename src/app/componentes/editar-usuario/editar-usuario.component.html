@@ -1,0 +1,78 @@
+<div>
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-white">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Editar Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <form (ngSubmit)="onEdit()" class="custom-form" method="" #formEditarUsu="ngForm">
+                <div class="modal-body">
+
+                    <div class="mb-2 form-group">
+                        <label for="nombreEditado" class="form-label verde">Nombre:</label>
+                        <input type="text" class="form-control" id="nombreEditado"
+                             name="nombreEditado"
+                            [(ngModel)]="nombreEditado" required>
+                    </div>
+                    <div class="mb-2 form-group">
+                        <label for="profesionEditada" class="form-label">Profesión:</label>
+                        <input type="text" class="form-control" id="profesionEditada" 
+                            name="profesionEditada" [(ngModel)]="profesionEditada" required>
+                    </div>
+                    
+                    <div class="mb-2 form-group">
+                        <label for="backgroundImageEditada" class="form-label verde">Imagen de portada:</label>
+                        <input type="text" class="form-control" id="backgroundImageEditada"
+                             name="backgroundImageEditada"
+                            [(ngModel)]="backgroundImageEditada">
+                    </div>
+                    <div class="mb-2 form-group">
+                        <label for="linkInEditado" class="form-label">
+                             <i class="fab fa-linkedin  lead mx-2"></i>Linkedin:</label>
+                        <input type="text" class="form-control" id="linkInEditado"
+                             name="linkInEditado"
+                            [(ngModel)]="linkInEditado">
+                    </div>
+                    <div class="mb-2 form-group">
+                        <label for="linkWPEditado" class="form-label verde">
+                            <i class="fab fa-whatsapp lead mx-2"></i>WhatsApp:</label>
+                        <input type="text" class="form-control" id="linkWPEditado"
+                             name="linkWPEditado"
+                            [(ngModel)]="linkWPEditado">
+                    </div>
+                    <div class="mb-1 form-group">
+                        <label for="linkGHEditado" class="form-label">
+                            <i class="fab fa-github lead mx-2"></i>GitHub:</label>
+                        <input type="text" class="form-control" id="linkGHEditado" 
+                            name="linkGHEditado" [(ngModel)]="linkGHEditado">
+                    </div>
+                    <div class="mb-1 form-group">
+                        <label for="linkIGEditado" class="form-label verde">
+                            <i class="fab fa-github lead mx-2"></i>Instagram:</label>
+                        <input type="text" class="form-control" id="linkIGEditado" 
+                            name="linkIGEditado" [(ngModel)]="linkIGEditado">
+                    </div>
+                    <div class="mb-1 form-group">
+                        <label for="emailEditado" class="form-label">
+                            <i class="fab fa-github lead mx-2"></i>Email:</label>
+                        <input type="email" class="form-control" id="emailEditado" 
+                            name="emailEditado" [(ngModel)]="emailEditado" required>
+                    </div>
+                                       
+
+                </div>
+
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button  type="submit" [disabled]="formEditarUsu.invalid" class="btn btn-success" data-bs-dismiss="modal">Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
