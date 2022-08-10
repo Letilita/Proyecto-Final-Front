@@ -1,5 +1,5 @@
 export interface Proyecto {
-    id: number;
+    idProy?: number;
     nombreProy: String ;
     descripcionProy: String ;
     fechaProy: String ;

@@ -11,6 +11,14 @@ import { ProyectosService } from 'src/app/servicios/proyectos.service';
 export class ProyectosComponent implements OnInit {
 
   public proyectos: Proyecto[] = []
+  public proyectoActual?: Proyecto
+  idProyABorrar: number = 0;
+
+  nombreProyAEditar:string="";
+  descripcionProyAEditar:string="";
+  fechaProyAEditar:string="";
+  imagenProyAEditar:string="";
+  linkProyAEditar:string="";
 
   constructor( private proyectoService: ProyectosService) { }
 
@@ -24,4 +32,26 @@ export class ProyectosComponent implements OnInit {
 
   }
 
+  guardarProyecto(proy: Proyecto){
+    this.proyectoActual = proy;
+
+  }
+
+  renderizar(){
+    this.proyectoService.getProyectos().subscribe(data => {
+      
+      this.proyectos = data;
+    })
+
+  }
+
+  
+
+  onDelete(){
+    console.log(this.idProyABorrar)
+  }
+
+  onEdit(){
+    console.log(this.idProyABorrar)
+  }
 }

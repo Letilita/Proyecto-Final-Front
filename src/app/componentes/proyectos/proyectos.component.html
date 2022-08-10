@@ -1,41 +1,61 @@
 <!-- Seción 3 Porfolio-->
 <div id="section3" class="container-fluid text-white" style="padding:60px 0px 0px 0px; background-color: black;">
-  <i class="fa-regular fa-plus p-2 m-1 float-end mas-en-proyectos my-3 mt-2 text-muted"></i>
-    <div class="container-fluid mt-0">
-  
-     
-      <div class="container-fluid float-cenert pb-3 mt-5" id="contenedorCarrousel">
-        <!-- Carrousel -->
-        <div id="demo" class="carousel slide mb-2" data-bs-ride="carousel" >
-  
-          <!-- Indicators/dots -->
-          <div class="carousel-indicators" >
-            <button *ngFor="let proyecto of proyectos; index as i; first as isFirst" type="button" data-bs-target="#demo" [attr.data-bs-slide-to] = i [ngClass]="{'active': isFirst }"></button>
-            <!-- <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>           -->
-          </div>
-          
-          <!-- The slideshow/carousel -->
-          <div class="carousel-inner" style="height:fit-content" >
-            <div *ngFor="let proyecto of proyectos; first as isFirst" class="carousel-item active" [ngClass]="{'active': isFirst }">
-              <img [src]="proyecto.imagenProy" [alt]="proyecto.nombreProy" class="d-block imagenCarrousel">
-              <div class="carousel-caption">
-                <div class="d-flex justify-content-end">
-                  <i class="fa-regular fa-trash-can m-2"></i>
-                  <i class="fa-regular fa-pen-to-square m-2"></i>
-                </div>
-                  <h3>{{proyecto.nombreProy}}</h3> 
-                                
-                <p>{{proyecto.descripcionProy}}</p>
-                
-                  <a [href]="proyecto.linkProy" target="_blank" class="btn btn-sm text-white">
-                    Ver en GitHub  <i class="fab fa-github lead text-white"></i>
-                  </a>
-                  
 
-                
-              </div>
+  <!-- Botones de edición-->
+  <div>
+    <i class="fa-regular fa-plus p-2 m-1 float-end mas-en-proyectos my-3 mt-2 text-muted" data-bs-toggle="modal"
+      data-bs-target="#agregarProy"></i>
+
+    <i class="fa-regular fa-trash-can float-end mas-en-proyectos my-3 mt-2 text-muted p-2 m-1" data-bs-toggle="modal"
+      data-bs-target="#seleccionarProyABorrar" ></i>
+
+    <i class="fa-regular fa-pen-to-square float-end mas-en-proyectos my-3 mt-2 text-muted p-2 m-1" data-bs-toggle="modal"
+    data-bs-target="#seleccionarProyAEditar" ></i>
+
+  </div>
+
+
+  <div class="container-fluid mt-0">
+
+
+    <div class="container-fluid float-cenert pb-3 mt-5" id="contenedorCarrousel">
+      <!-- Carrousel -->
+      <div id="demo" class="carousel slide mb-2" data-bs-ride="carousel">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+          <button *ngFor="let proyecto of proyectos; index as i; first as isFirst" type="button" data-bs-target="#demo"
+            [attr.data-bs-slide-to]=i [ngClass]="{'active': isFirst }"></button>
+          <!-- <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>           -->
+        </div>
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner" style="height:fit-content">
+          <div *ngFor="let proyecto of proyectos; first as isFirst" class="carousel-item active"
+            [ngClass]="{'active': isFirst }">
+            <img [src]="proyecto.imagenProy" [alt]="proyecto.nombreProy" class="d-block imagenCarrousel">
+            <div class="carousel-caption">
+              <!-- <div class="d-flex justify-content-end">
+                  <i class="fa-regular fa-trash-can m-2" data-bs-toggle="modal"
+                  data-bs-target="#borrarProy" (click)="guardarProyecto(proyecto)"></i>
+                  <i class="fa-regular fa-pen-to-square m-2"></i>
+                </div> -->
+              <h3>{{proyecto.nombreProy}}</h3>
+
+              <p>{{proyecto.descripcionProy}}</p>
+
+              <a [href]="proyecto.linkProy" target="_blank" class="btn btn-sm text-white">
+                Ver en GitHub <i class="fab fa-github lead text-white"></i>
+              </a>
+              <!-- 
+                  <app-borrar-proyecto class="modal" id="borrarProy" (onCreateEvent)="renderizar()" [proyectoABorrar]="proyectoActual"></app-borrar-proyecto> -->
+
+
+
             </div>
-      
+
+          </div>
+
           <!-- Left and right controls/icons -->
           <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -43,13 +63,187 @@
           <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
             <span class="carousel-control-next-icon"></span>
           </button>
-          </div>
         </div>
-        
       </div>
-    
-    
-    
+
     </div>
-  
+
+
+
   </div>
+
+</div>
+<app-proyecto-nuevo class="modal" id="agregarProy" (onCreateEvent)="renderizar()"></app-proyecto-nuevo>
+<!-- <app-borrar-proyecto class="modal" id="borrarrProy" (onCreateEvent)="renderizar()" [proyectoABorrar]="proyectoActual">
+</app-borrar-proyecto> -->
+
+
+
+<div class="modal" id="seleccionarProyABorrar">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white" >
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Eliminar proyecto </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <form class="custom-form" method="" #formNuevoProy="ngForm">
+        <div class="modal-body">
+
+          <div class="mb-3 form-group">
+            <h4>Seleccione el proyecto que desea borrar</h4>
+
+            <select  class="form-select" id="catEduNueva" placeholder="Introduzca una breve descripción" name="catEduNueva" [(ngModel)]="idProyABorrar" required>                      
+                            
+              <option *ngFor="let proyecto of proyectos;" [value]="proyecto.idProy">{{proyecto.nombreProy}}</option>
+            </select>
+
+            <!-- <div class="form-group" *ngFor="let proyecto of proyectos">
+              <input type="radio" name="proyectoABorrar" [value]="proyecto.idProy" class="" [id]="proyecto.nombreProy">
+              <label [for]="proyecto.nombreProy" class="form-label">{{proyecto.nombreProy}}</label>
+            </div> -->
+          </div>
+
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button [disabled]="formNuevoProy.invalid" type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#borrarProy" >Borrar proyecto</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="borrarProy">
+  <div class="modal-dialog">
+      <div class="modal-content bg-dark text-white">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+              <h5 class="modal-title">Eliminar proyecto</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Modal body -->
+
+          <div class="modal-body">
+              <h3>{{idProyABorrar}}</h3>
+              <p>¿Está seguro que desea borrar este proyecto?</p>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="onDelete()">Borrar proyecto</button>
+          </div>
+
+      </div>
+  </div>
+</div>
+
+<div class="modal" id="seleccionarProyAEditar">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white" >
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Editar proyecto </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <form class="custom-form" method="" #formNuevoProy="ngForm">
+        <div class="modal-body">
+
+          <div class="mb-3 form-group">
+            <h4>Seleccione el proyecto que desea editar</h4>
+
+            <select  class="form-select" id="catEduNueva" placeholder="Introduzca una breve descripción" name="catEduNueva" [(ngModel)]="idProyABorrar" required>                      
+                            
+              <option *ngFor="let proyecto of proyectos;" [value]="proyecto.idProy">{{proyecto.nombreProy}}</option>
+            </select>
+
+            <!-- <div class="form-group" *ngFor="let proyecto of proyectos">
+              <input type="radio" name="proyectoABorrar" [value]="proyecto.idProy" class="" [id]="proyecto.nombreProy">
+              <label [for]="proyecto.nombreProy" class="form-label">{{proyecto.nombreProy}}</label>
+            </div> -->
+          </div>
+
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button [disabled]="formNuevoProy.invalid" type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#editarProy" >Editar proyecto</button>
+        </div>
+      </form>
+
+      
+      
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="editarProy">
+  <div class="modal-dialog" >
+    <div class="modal-content bg-dark text-white">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Proyecto </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <form (ngSubmit)="onEdit()" class="custom-form" method="" #formNuevoProy="ngForm">
+        <div class="modal-body">
+
+          <div class="mb-3 form-group">
+            <label for="nombreProyNuevo" class="form-label">Nombre del proyecto:</label>
+            <input type="text" class="form-control" id="nombreProyNuevo"
+              name="nombreProyNuevo"  placeholder="Nombre del proyecto"[(ngModel)]="nombreProyAEditar" required>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="descripcionProyNuevo" class="form-label">Descripción:</label>
+            <input type="text" class="form-control" id="descripcionProyNuevo"
+                name="descripcionProyNuevo" placeholder="Breve descripción del proyecto" [(ngModel)]="descripcionProyAEditar" required>
+                
+          </div>          
+            
+        
+          <div class="mb-3 form-group">
+            <label for="fechaProyNuevo" class="form-label">Fecha:</label>
+            <input type="text" class="form-control" id="fechaProy"
+                name="fechaProyNuevo" placeholder="Fecha de creación" [(ngModel)]="fechaProyAEditar">
+          </div>
+          <div class="mb-3 form-group">
+            <label for="imagenProyNuevo" class="form-label">Imagen foto del proyecto:</label>
+            <input type="text" class="form-control" id="imagenProyNuevo"
+                name="imagenProyNuevo" placeholder="URL de la imagen del proyecto" [(ngModel)]="imagenProyAEditar" required>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="linkProyNuevo" class="form-label">Link de GitHub:</label>
+            <input type="text" class="form-control" id="linkProyNuevo"
+                name="linkProyNuevo"  placeholder="Link al repositorio de GitHub"[(ngModel)]="linkProyAEditar">
+          </div>
+
+        </div>
+
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button [disabled]="formNuevoProy.invalid" type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="onEdit()">Editar Proyecto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

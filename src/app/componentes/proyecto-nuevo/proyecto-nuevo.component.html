@@ -1,0 +1,55 @@
+<div >
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-white">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title">Agregar Proyecto </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <form (ngSubmit)="onCreate()" class="custom-form" method="" #formNuevoProy="ngForm">
+          <div class="modal-body">
+  
+            <div class="mb-3 form-group">
+              <label for="nombreProyNuevo" class="form-label">Nombre del proyecto:</label>
+              <input type="text" class="form-control" id="nombreProyNuevo"
+                name="nombreProyNuevo"  placeholder="Nombre del proyecto"[(ngModel)]="nombreProyNuevo" required>
+            </div>
+            <div class="mb-3 form-group">
+              <label for="descripcionProyNuevo" class="form-label">Descripción:</label>
+              <input type="text" class="form-control" id="descripcionProyNuevo"
+                 name="descripcionProyNuevo" placeholder="Breve descripción del proyecto" [(ngModel)]="descripcionProyNuevo" required>
+                 
+            </div>          
+              
+          
+            <div class="mb-3 form-group">
+              <label for="fechaProyNuevo" class="form-label">Fecha:</label>
+              <input type="text" class="form-control" id="fechaProy"
+                 name="fechaProyNuevo" placeholder="Fecha de creación" [(ngModel)]="fechaProyNuevo">
+            </div>
+            <div class="mb-3 form-group">
+              <label for="imagenProyNuevo" class="form-label">Imagen foto del proyecto:</label>
+              <input type="text" class="form-control" id="imagenProyNuevo"
+                 name="imagenProyNuevo" placeholder="URL de la imagen del proyecto" [(ngModel)]="imagenProyNuevo" required>
+            </div>
+            <div class="mb-3 form-group">
+              <label for="linkProyNuevo" class="form-label">Link de GitHub:</label>
+              <input type="text" class="form-control" id="linkProyNuevo"
+                 name="linkProyNuevo"  placeholder="Link al repositorio de GitHub"[(ngModel)]="linkProyNuevo">
+            </div>
+  
+          </div>
+  
+  
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button [disabled]="formNuevoProy.invalid" type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="onCreate()">Agregar Proyecto</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -25,9 +25,9 @@
                     </div>
                     <div class="mb-2 form-group">
                       <label for="catEduNueva" class="form-label">Categoría:</label>
-                        <select  class="form-select" class="form-control" id="catEduNueva"
+                        <select  class="form-select" id="catEduNueva"
                         placeholder="Introduzca una breve descripción" name="catEduNueva"
-                        [(ngModel)]="idCatEduNueva" required>
+                        [(ngModel)]="idCatEduNueva" required>                      
                             
                             <option *ngFor="let categoria of categorias;" [value]="categoria.idCatEdu">{{categoria.nombreCatEdu}}</option>
                           </select>
