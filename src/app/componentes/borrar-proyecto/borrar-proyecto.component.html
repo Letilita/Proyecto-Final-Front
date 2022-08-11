@@ -1,4 +1,45 @@
-<div  >
+<div>
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-white">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Eliminar proyecto </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <form class="custom-form" method="" #formBorrarProy="ngForm">
+                <div class="modal-body">
+
+                    <div class="mb-3 form-group">
+                        <h4>Seleccione el proyecto que desea borrar</h4>
+
+                        <select class="form-select" id="catEduNueva" placeholder="Introduzca una breve descripción"
+                            name="catEduNueva" [(ngModel)]="idProyABorrar" required>
+
+                            <option *ngFor="let proyecto of proyectos;" [value]="proyecto.idProy">
+                                {{proyecto.nombreProy}}</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button [disabled]="formBorrarProy.invalid" type="button" class="btn btn-success"
+                        data-bs-toggle="modal" data-bs-target="#borrarProy">Borrar proyecto</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="borrarProy">
     <div class="modal-dialog">
         <div class="modal-content bg-dark text-white">
 
@@ -11,15 +52,16 @@
             <!-- Modal body -->
 
             <div class="modal-body">
-                <h3>{{proyectoABorrar?.nombreProy}}</h3>
-                <p>¿Está seguro que desea borrar esta experiencia?</p>
+                <h3>{{idProyABorrar}}</h3>
+                <p>¿Está seguro que desea borrar este proyecto?</p>
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="onDelete()">Borrar experiencia</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="onDelete()">Borrar proyecto</button>
             </div>
 
         </div>
     </div>
+</div>

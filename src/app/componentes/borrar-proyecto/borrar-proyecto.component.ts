@@ -9,22 +9,31 @@ import { ProyectosService } from 'src/app/servicios/proyectos.service';
 })
 export class BorrarProyectoComponent implements OnInit {
 
-  @Input() proyectoABorrar?: Proyecto;
+
   @Output() onDeleteEvent = new EventEmitter();
+
+  public proyectos: Proyecto[] = []
+
+  idProyABorrar: number = 0;
 
   constructor(private proyectoService: ProyectosService) { }
 
   ngOnInit(): void {
+    this.proyectoService.getProyectos().subscribe(data => {
+      
+      this.proyectos = data;
+      console.log(this.proyectos)
+
+  } );
+
   }
 
-  onDelete():void{
-    
-    if(this.proyectoABorrar?.idProy!== undefined){
-    this.proyectoService.deleteProyecto(this.proyectoABorrar.idProy).subscribe(data => {      
+  onDelete(): void {
+    this.proyectoService.deleteProyecto(this.idProyABorrar).subscribe(data => {
       this.onDeleteEvent.emit();
-  }, err =>{alert("Algo salió mal")} )
- 
-    }
-  }
+    }, err => { alert("Algo salió mal") })
 
+  }
 }
+
+

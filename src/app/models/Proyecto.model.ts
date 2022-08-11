@@ -4,5 +4,5 @@ export interface Proyecto {
     descripcionProy: String ;
     fechaProy: String ;
     imagenProy: String ;
-    linkProy: String ;
+    linkProy?: String ;
 }

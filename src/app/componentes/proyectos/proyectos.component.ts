@@ -11,47 +11,78 @@ import { ProyectosService } from 'src/app/servicios/proyectos.service';
 export class ProyectosComponent implements OnInit {
 
   public proyectos: Proyecto[] = []
-  public proyectoActual?: Proyecto
+
   idProyABorrar: number = 0;
+  nombreProyABorrar?: String;
 
-  nombreProyAEditar:string="";
-  descripcionProyAEditar:string="";
-  fechaProyAEditar:string="";
-  imagenProyAEditar:string="";
-  linkProyAEditar:string="";
+  idProyAEditar: number = 0;
+  proyectoAEditar?: Proyecto
+  nombreProyAEditar?: String = "";
+  descripcionProyAEditar?: String ="";
+  fechaProyAEditar?: String = "";
+  imagenProyAEditar?: String = "";
+  linkProyAEditar: String  | undefined= "";
 
-  constructor( private proyectoService: ProyectosService) { }
+
+  constructor(private proyectoService: ProyectosService) { }
 
   ngOnInit(): void {
     this.proyectoService.getProyectos().subscribe(data => {
-      
+
       this.proyectos = data;
       console.log(this.proyectos)
 
-  } );
+    });
 
   }
 
-  guardarProyecto(proy: Proyecto){
-    this.proyectoActual = proy;
 
-  }
-
-  renderizar(){
+  renderizar() {
     this.proyectoService.getProyectos().subscribe(data => {
-      
+
       this.proyectos = data;
     })
 
   }
 
-  
 
-  onDelete(){
-    console.log(this.idProyABorrar)
+
+  onDelete(): void {
+    this.proyectoService.deleteProyecto(this.idProyABorrar).subscribe(data => {
+      this.renderizar()
+    }, err => { alert("Algo salió mal") })
+
   }
 
-  onEdit(){
-    console.log(this.idProyABorrar)
+
+  buscarPorId(id: number) {
+    this.nombreProyABorrar = this.proyectos.find(proy => proy.idProy == id)?.nombreProy;
+    return this.nombreProyABorrar;
+  }
+
+  onSelect() {
+    console.log(this.idProyAEditar)
+    this.proyectoAEditar = this.proyectos.find(proy => proy.idProy == this.idProyAEditar);
+    this.nombreProyAEditar = this.proyectoAEditar?.nombreProy;
+    this.descripcionProyAEditar = this.proyectoAEditar?.descripcionProy;
+    this.fechaProyAEditar = this.proyectoAEditar?.fechaProy;
+    this.imagenProyAEditar = this.proyectoAEditar?.imagenProy;
+    this.linkProyAEditar = this.proyectoAEditar?.linkProy;
+  }
+
+  onEdit() {
+
+    console.log(this.nombreProyAEditar)
+
+    if (this.nombreProyAEditar && this.descripcionProyAEditar && this.fechaProyAEditar && this.imagenProyAEditar  && this.proyectoAEditar) {
+     const proyectoEditado: Proyecto= { idProy: this.proyectoAEditar.idProy, nombreProy: this.nombreProyAEditar, descripcionProy: this.descripcionProyAEditar, fechaProy: this.fechaProyAEditar, imagenProy: this.imagenProyAEditar, linkProy: this.linkProyAEditar };
+
+      console.log(proyectoEditado)
+
+      this.proyectoService.updateProyecto(proyectoEditado).subscribe(data => {
+        this.renderizar()
+      }, err => { alert("Algo salió mal") })
+    }
   }
 }
+

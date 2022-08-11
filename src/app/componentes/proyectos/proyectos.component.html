@@ -1,4 +1,6 @@
 <!-- Seción 3 Porfolio-->
+
+<!-- La edición de esta sección resulta distinta a la de las otras secciones porque al ser un carrousel, si el botón de edición está dentro, el modal se ve solo en el primer slide del carrousel. Para no complicarme, decidí resolverlo de esta manera, para mantener los modales. -->
 <div id="section3" class="container-fluid text-white" style="padding:60px 0px 0px 0px; background-color: black;">
 
   <!-- Botones de edición-->
@@ -74,23 +76,26 @@
 
 </div>
 <app-proyecto-nuevo class="modal" id="agregarProy" (onCreateEvent)="renderizar()"></app-proyecto-nuevo>
-<!-- <app-borrar-proyecto class="modal" id="borrarrProy" (onCreateEvent)="renderizar()" [proyectoABorrar]="proyectoActual">
+
+
+<!-- Por ahora no lo hago en otro componente porque debería hacer un componente para la selección del proyecto y otro para la confirmación. Esto es tanto para borrar como editar. Quedan muchos componentes y me resulta engorroso. Si hago a tiempo voy a ver si lo puedo resolver mejor, por ahora quedan todos los modales dentro de este componente principal -->
+<!-- <app-borrar-proyecto class="modal" id="seleccionarProyABorrar" (onDeleteEvent)="renderizar()">
 </app-borrar-proyecto> -->
 
 
 
-<div class="modal" id="seleccionarProyABorrar">
+ <div class="modal" id="seleccionarProyABorrar">
   <div class="modal-dialog">
     <div class="modal-content bg-dark text-white" >
 
-      <!-- Modal Header -->
+      
       <div class="modal-header">
         <h5 class="modal-title">Eliminar proyecto </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
-      <!-- Modal body -->
-      <form class="custom-form" method="" #formNuevoProy="ngForm">
+      
+      <form class="custom-form" method="" #formBorrarProy="ngForm">
         <div class="modal-body">
 
           <div class="mb-3 form-group">
@@ -101,19 +106,15 @@
               <option *ngFor="let proyecto of proyectos;" [value]="proyecto.idProy">{{proyecto.nombreProy}}</option>
             </select>
 
-            <!-- <div class="form-group" *ngFor="let proyecto of proyectos">
-              <input type="radio" name="proyectoABorrar" [value]="proyecto.idProy" class="" [id]="proyecto.nombreProy">
-              <label [for]="proyecto.nombreProy" class="form-label">{{proyecto.nombreProy}}</label>
-            </div> -->
           </div>
 
         </div>
 
-        <!-- Modal footer -->
+        
         <div class="modal-footer">
           
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button [disabled]="formNuevoProy.invalid" type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#borrarProy" >Borrar proyecto</button>
+          <button [disabled]="formBorrarProy.invalid" type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#borrarProy" >Borrar proyecto</button>
         </div>
       </form>
 
@@ -125,20 +126,18 @@
   <div class="modal-dialog">
       <div class="modal-content bg-dark text-white">
 
-          <!-- Modal Header -->
+          
           <div class="modal-header">
               <h5 class="modal-title">Eliminar proyecto</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
 
-          <!-- Modal body -->
 
           <div class="modal-body">
-              <h3>{{idProyABorrar}}</h3>
+              <h3>{{buscarPorId(idProyABorrar)}}</h3>
               <p>¿Está seguro que desea borrar este proyecto?</p>
           </div>
 
-          <!-- Modal footer -->
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="onDelete()">Borrar proyecto</button>
@@ -146,7 +145,7 @@
 
       </div>
   </div>
-</div>
+</div> -->
 
 <div class="modal" id="seleccionarProyAEditar">
   <div class="modal-dialog">
@@ -159,21 +158,17 @@
       </div>
 
       <!-- Modal body -->
-      <form class="custom-form" method="" #formNuevoProy="ngForm">
+      <form class="custom-form" method="" #formSeleccionarProy="ngForm">
         <div class="modal-body">
 
           <div class="mb-3 form-group">
             <h4>Seleccione el proyecto que desea editar</h4>
 
-            <select  class="form-select" id="catEduNueva" placeholder="Introduzca una breve descripción" name="catEduNueva" [(ngModel)]="idProyABorrar" required>                      
+            <select  class="form-select" id="catEduNueva" placeholder="Introduzca una breve descripción" name="catEduNueva" [(ngModel)]="idProyAEditar" required>                      
                             
               <option *ngFor="let proyecto of proyectos;" [value]="proyecto.idProy">{{proyecto.nombreProy}}</option>
             </select>
 
-            <!-- <div class="form-group" *ngFor="let proyecto of proyectos">
-              <input type="radio" name="proyectoABorrar" [value]="proyecto.idProy" class="" [id]="proyecto.nombreProy">
-              <label [for]="proyecto.nombreProy" class="form-label">{{proyecto.nombreProy}}</label>
-            </div> -->
           </div>
 
         </div>
@@ -182,15 +177,14 @@
         <div class="modal-footer">
           
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button [disabled]="formNuevoProy.invalid" type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#editarProy" >Editar proyecto</button>
+          <button [disabled]="formSeleccionarProy.invalid" type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#editarProy" (click)="onSelect()" >Editar proyecto</button>
         </div>
       </form>
-
-      
-      
+ 
     </div>
   </div>
 </div>
+
 
 <div class="modal" id="editarProy">
   <div class="modal-dialog" >
@@ -203,7 +197,7 @@
       </div>
 
       <!-- Modal body -->
-      <form (ngSubmit)="onEdit()" class="custom-form" method="" #formNuevoProy="ngForm">
+      <form (ngSubmit)="onEdit()" class="custom-form" method="" #formEditarProy="ngForm">
         <div class="modal-body">
 
           <div class="mb-3 form-group">
@@ -241,7 +235,7 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button [disabled]="formNuevoProy.invalid" type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="onEdit()">Editar Proyecto</button>
+          <button [disabled]="formEditarProy.invalid" type="submit" class="btn btn-success" data-bs-dismiss="modal">Editar Proyecto</button>
         </div>
       </form>
     </div>
