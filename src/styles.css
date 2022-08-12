@@ -70,6 +70,12 @@ i{
     color: white;
 }
 
+i:hover{
+    cursor: pointer;
+    
+    
+}
+
 body::-webkit-scrollbar {
     width: 8px;               /* width of the entire scrollbar */
     background: black

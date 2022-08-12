@@ -30,6 +30,11 @@ export class ProyectoNuevoComponent implements OnInit {
     this.proyectoService.createProyecto(nuevoProyecto).subscribe(data => {
 
       this.onCreateEvent.emit();
+      this.nombreProyNuevo = "";
+      this.descripcionProyNuevo = "";
+      this.fechaProyNuevo = "";
+      this.imagenProyNuevo = "";
+      this.linkProyNuevo = "";
     }, err => {
       alert("Algo salió mal")
     }

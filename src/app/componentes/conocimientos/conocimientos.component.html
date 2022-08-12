@@ -4,42 +4,48 @@
     <h3>Conocimientos y habilidades</h3>
     <i class="fa-regular fa-plus icono-principal p-2 m-1"></i>
   </div>
-  
-  <div class="row">  
-    <div *ngFor="let categoria of categorias; last as isLast; even as isEven" [ngClass]="{' col-md-12': isLast && isEven , 'col-sm-12 col-md-6': !(isLast && isEven)}">
-        
+
+  <div class="row">
+    <div *ngFor="let categoria of categorias; last as isLast; even as isEven"
+      [ngClass]="{' col-md-12': isLast && isEven , 'col-sm-12 col-md-6': !(isLast && isEven)}">
+
       <div class="border border-1 border-success p-3 mt-3">
         <div class="d-flex justify-content-between">
           <h3> {{categoria.nombreCatSkill}}</h3>
           <div class="d-flex flex-column">
             <i class="fa-regular fa-trash-can m-1 mt-0"></i>
             <i class="fa-regular fa-pen-to-square m-1"></i>
+          </div>
         </div>
-      </div>
-        
+
         <div *ngFor="let item of filtrarPorCategoria(categoria.idCatSkill)" class="progress mb-3 mt-3">
-          
-          <div style="width: 100%;" class="d-flex">
-          <div style="width: 100%;" class="d-flex">
-            
-            <div class="progress-bar  bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width.%': item.avance}" > {{item.nombreSkill}}  {{item.avance}}%
-            </div>           
-            
 
+          <div style="width: 100%;" class="d-flex">
+            <div style="width: 100%;" class="d-flex">
+
+              <div class="progress-bar  bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width.%': item.avance}">
+                {{item.nombreSkill}} {{item.avance}}%
+              </div>
+
+
+            </div>
+
+            <div class="d-flex flex-column">
+              <i class="fa-regular fa-circle-xmark verde  text-success"></i>
+              <i class="fa-regular fa-pen-to-square verde  text-success"></i>
+            </div>
           </div>
 
-          <div class="d-flex flex-column">
-            <i class="fa-regular fa-circle-xmark verde  text-success"></i>
-            <i class="fa-regular fa-pen-to-square verde  text-success"></i>
-          </div>
         </div>
-        
-        </div>
-        
+
         <div class="d-flex justify-content-end">
-          <i class="fa-regular fa-plus icono-principal"></i>
+          <i class="fa-regular fa-plus icono-principal" data-bs-toggle="modal"
+            data-bs-target="#agregarConocimiento"></i>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<app-conocimiento-nuevo class="modal" id="agregarConocimiento"  (onCreateEvent)="renderizar()"></app-conocimiento-nuevo>

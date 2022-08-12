@@ -45,6 +45,13 @@ export class EducacionNuevaComponent implements OnInit {
         this.educacionService.createEducacion(nuevaEducacion).subscribe(data => {
 
           this.onCreateEvent.emit();
+          this.institucionNueva = "";
+          this.tituloNuevo = "";
+          this.logoInstitucionNuevo = "";
+          this.inicioNuevo = "";
+          this.finNuevo = "";
+          this.descripcionNueva = "";
+          this.idCatEduNueva = 0;
         }, err => {
           alert("Algo salió mal")
         }

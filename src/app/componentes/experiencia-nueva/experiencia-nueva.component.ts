@@ -32,6 +32,11 @@ export class ExperienciaNuevaComponent implements OnInit {
       this.experienciaService.createExperiencia(nuevaExperiencia).subscribe(data => {
         
         this.onCreateEvent.emit();
+        this.puestoNuevo = "";
+        this.empresaNueva = "";
+        this.logoEmpresaNuevo = "";
+        this.inicioNuevo = "";
+        this.finNuevo = "";
       }, err => {
         alert("Algo salió mal")
       }

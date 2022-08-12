@@ -1,5 +1,5 @@
 export interface CategoriaSkill{
-    idCatSkill: number;
+    idCatSkill?: number;
     nombreCatSkill: String;
 
 }

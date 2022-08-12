@@ -32,11 +32,23 @@ export class ConocimientosComponent implements OnInit {
   } );
   }
 
-  public filtrarPorCategoria(id: number): Skill[]{
+  public filtrarPorCategoria(id: number | undefined): Skill[]{
     this.conocimientosFiltrados = this.conocimientos.filter(skill => skill.catSkill.idCatSkill==id)
     return this.conocimientosFiltrados;
+  }
 
+  renderizar(){
+    this.skillService.getSkills().subscribe(data => {    
+      this.conocimientos = data;
+      console.log(this.conocimientos);
+      
+  } );
 
+      this.skillService.getCateSkills().subscribe(data => {    
+      this.categorias = data;
+      console.log(this.filtrarPorCategoria(6));
+      
+  } );
   }
 
 }

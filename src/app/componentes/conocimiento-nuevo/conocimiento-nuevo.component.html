@@ -1,0 +1,50 @@
+<div>
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark text-white">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Nuevo Conocimiento / Habilidad</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <form (ngSubmit)="onCreate()" class="custom-form" method="" #formNuevaSkill="ngForm">
+                <div class="modal-body">
+
+                    <div class="mb-2 form-group">
+                        <label for="nombreSkillNuevo" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombreSkillNuevo"
+                            placeholder="Nombre del conocimiento o habilidad" name="nombreSkillNuevo"
+                            [(ngModel)]="nombreSkillNuevo" required>
+                    </div>
+                    <div class="mb-2 form-group">
+                        <label for="avanceNuevo" class="form-label">Avance:</label>
+                        <input type="number" class="form-control" id="avanceNuevo"
+                            placeholder="Introduzca el % de avance del 0 al 100" name="avanceNuevo"
+                            [(ngModel)]="avanceNuevo" required>
+                    </div>
+                    <div class="mb-2 form-group">
+                        <label for="catSkillNuevo" class="form-label">Categoría:</label>
+                        <select class="form-select" id="catSkillNuevo" placeholder="Introduzca una breve descripción" name="catSkillNuevo" [(ngModel)]="idCatSkillNueva" required>
+                            <option *ngFor="let categoria of categorias;" [value]="categoria.idCatSkill">
+                                {{categoria.nombreCatSkill}}
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button [disabled]="formNuevaSkill.invalid" type="submit" class="btn btn-success"
+                        data-bs-dismiss="modal">Agregar experiencia</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

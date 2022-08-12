@@ -1,7 +1,7 @@
 import { CategoriaSkill } from "./CategoriaSkill.model";
 
 export interface Skill{
-    idSkill: number;
+    idSkill?: number;
     nombreSkill: String ;    
     avance: number ;
     catSkill: CategoriaSkill ;
