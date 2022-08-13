@@ -28,15 +28,18 @@
                 {{item.nombreSkill}} {{item.avance}}%
               </div>
 
-
             </div>
 
-            <div class="d-flex flex-column">
-              <i class="fa-regular fa-circle-xmark verde  text-success"></i>
-              <i class="fa-regular fa-pen-to-square verde  text-success"></i>
+            <div class="d-flex">
+              
+              <i class="fa-regular fa-pen-to-square iconoEnBarra text-success"></i>
+              <i class="fa-regular fa-circle-xmark iconoEnBarra  text-success" data-bs-toggle="modal"
+              data-bs-target="#eliminarConocimiento" (click)="guardarSkill(item)"></i>
+              
             </div>
           </div>
 
+          <app-borrar-conocimiento class="modal" id="eliminarConocimiento" [skillABorrar]="skillActual" (onDeleteEvent)="renderizar()"></app-borrar-conocimiento>
         </div>
 
         <div class="d-flex justify-content-end">

@@ -10,7 +10,7 @@
 
 i {
     color: white;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .icono-principal{
@@ -22,9 +22,9 @@ i {
     height: 100%;
 }
 
-.verde{
+.iconoEnBarra{
     color: black;
-    font-size: 0.55rem;
+    font-size: 1rem;
     font-weight: bold;
     margin: 0.1rem
     
