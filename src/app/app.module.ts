@@ -27,6 +27,7 @@ import { BorrarProyectoComponent } from './componentes/borrar-proyecto/borrar-pr
 import { ConocimientoNuevoComponent } from './componentes/conocimiento-nuevo/conocimiento-nuevo.component';
 import { BorrarConocimientoComponent } from './componentes/borrar-conocimiento/borrar-conocimiento.component';
 import { EditarConocimientoComponent } from './componentes/editar-conocimiento/editar-conocimiento.component';
+import { CategoriaSkillNuevaComponent } from './componentes/categoria-skill-nueva/categoria-skill-nueva.component';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -54,7 +55,8 @@ import { EditarConocimientoComponent } from './componentes/editar-conocimiento/e
     BorrarProyectoComponent,
     ConocimientoNuevoComponent,
     BorrarConocimientoComponent,
-    EditarConocimientoComponent
+    EditarConocimientoComponent,
+    CategoriaSkillNuevaComponent
     
   ],
   imports: [
