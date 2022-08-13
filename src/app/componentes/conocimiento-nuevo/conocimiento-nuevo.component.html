@@ -15,22 +15,19 @@
                     <div class="mb-2 form-group">
                         <label for="nombreSkillNuevo" class="form-label">Nombre:</label>
                         <input type="text" class="form-control" id="nombreSkillNuevo"
-                            placeholder="Nombre del conocimiento o habilidad" name="nombreSkillNuevo"
+                            placeholder="Ingrese el nombre del conocimiento o habilidad" name="nombreSkillNuevo"
                             [(ngModel)]="nombreSkillNuevo" required>
                     </div>
                     <div class="mb-2 form-group">
                         <label for="avanceNuevo" class="form-label">Avance:</label>
-                        <input type="number" class="form-control" id="avanceNuevo"
-                            placeholder="Introduzca el % de avance del 0 al 100" name="avanceNuevo"
+                        <input type="number"min="0" step="5" max="100" class="form-control" id="avanceNuevo"
+                            placeholder="Ingrese el % de avance del 0 al 100" name="avanceNuevo"
                             [(ngModel)]="avanceNuevo" required>
                     </div>
                     <div class="mb-2 form-group">
                         <label for="catSkillNuevo" class="form-label">Categoría:</label>
-                        <select class="form-select" id="catSkillNuevo" placeholder="Introduzca una breve descripción" name="catSkillNuevo" [(ngModel)]="idCatSkillNueva" required>
-                            <option *ngFor="let categoria of categorias;" [value]="categoria.idCatSkill">
-                                {{categoria.nombreCatSkill}}
-                            </option>
-                        </select>
+                        <input class="form-control inhabilitado" id="catSkillNuevo"  name="catSkillNuevo" [(ngModel)]="nombreCatSkillAsignada" disabled>
+                            
 
                     </div>
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CategoriaSkill } from 'src/app/models/CategoriaSkill.model';
 import { Skill } from 'src/app/models/Skill.model';
 import { SkillService } from 'src/app/servicios/skill.service';
@@ -10,8 +10,11 @@ import { SkillService } from 'src/app/servicios/skill.service';
 })
 export class ConocimientoNuevoComponent implements OnInit {
 
+  @Input() catSkillAsignada?: CategoriaSkill
+  nombreCatSkillAsignada?: String
+
   nombreSkillNuevo: String = "";
-  avanceNuevo: number = 0;
+  avanceNuevo?: number
   catSkillNuevo?: CategoriaSkill;
   categorias: CategoriaSkill[] = [];
 
@@ -29,17 +32,22 @@ export class ConocimientoNuevoComponent implements OnInit {
     })
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    this.nombreCatSkillAsignada = this.catSkillAsignada?.nombreCatSkill
+  
+  }
+
   onCreate(){
-    if (this.idCatSkillNueva == 0) {
+/*     if (this.idCatSkillNueva == 0) {
       alert("Debe seleccionar una categoría!")
     } else {
       this.catSkillNuevo = this.categorias?.find(categoria => categoria.idCatSkill == this.idCatSkillNueva)
-      console.log(this.catSkillNuevo)
+      console.log(this.catSkillNuevo) */
 
-      if (this.catSkillNuevo) {
+      if (this.catSkillAsignada && this.avanceNuevo) {
         
-        const { nombreSkillNuevo, avanceNuevo, catSkillNuevo } = this;
-        const nuevaSkill: Skill = { nombreSkill: nombreSkillNuevo, avance: avanceNuevo, catSkill: catSkillNuevo };
+        const { nombreSkillNuevo, avanceNuevo, catSkillAsignada } = this;
+        const nuevaSkill: Skill = { nombreSkill: nombreSkillNuevo, avance: avanceNuevo, catSkill: catSkillAsignada };
 
         console.log(nuevaSkill)
         this.skillService.createSkill(nuevaSkill).subscribe(data => {
@@ -60,4 +68,4 @@ export class ConocimientoNuevoComponent implements OnInit {
 
   }
 
-}
+

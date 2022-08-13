@@ -32,7 +32,8 @@
 
             <div class="d-flex">
               
-              <i class="fa-regular fa-pen-to-square iconoEnBarra text-success"></i>
+              <i class="fa-regular fa-pen-to-square iconoEnBarra text-success" data-bs-toggle="modal"
+              data-bs-target="#editarConocimiento" (click)="guardarSkill(item)"></i>
               <i class="fa-regular fa-circle-xmark iconoEnBarra  text-success" data-bs-toggle="modal"
               data-bs-target="#eliminarConocimiento" (click)="guardarSkill(item)"></i>
               
@@ -40,15 +41,16 @@
           </div>
 
           <app-borrar-conocimiento class="modal" id="eliminarConocimiento" [skillABorrar]="skillActual" (onDeleteEvent)="renderizar()"></app-borrar-conocimiento>
+          <app-editar-conocimiento class="modal" id="editarConocimiento" [skillAEditar]="skillActual" (onEditEvent)="renderizar()"></app-editar-conocimiento>
         </div>
 
         <div class="d-flex justify-content-end">
           <i class="fa-regular fa-plus icono-principal" data-bs-toggle="modal"
-            data-bs-target="#agregarConocimiento"></i>
+            data-bs-target="#agregarConocimiento" (click)="guardarCategoriaSkill(categoria)"></i>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<app-conocimiento-nuevo class="modal" id="agregarConocimiento"  (onCreateEvent)="renderizar()"></app-conocimiento-nuevo>
+<app-conocimiento-nuevo class="modal" id="agregarConocimiento" [catSkillAsignada]="catSkillActual" (onCreateEvent)="renderizar()"></app-conocimiento-nuevo>

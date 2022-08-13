@@ -15,6 +15,7 @@ export class ConocimientosComponent implements OnInit {
   categorias: CategoriaSkill[] = [];
   conocimientosFiltrados: Skill[] = [];
   skillActual?:Skill;
+  catSkillActual?:CategoriaSkill;
   
 
   constructor(private skillService: SkillService) { }
@@ -56,4 +57,7 @@ export class ConocimientosComponent implements OnInit {
     this.skillActual=skill;
   }
 
+  guardarCategoriaSkill (catSkill: CategoriaSkill){
+    this.catSkillActual = catSkill;
+  }
 }

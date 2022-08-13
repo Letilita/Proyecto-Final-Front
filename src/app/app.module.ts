@@ -26,6 +26,7 @@ import { ProyectoNuevoComponent } from './componentes/proyecto-nuevo/proyecto-nu
 import { BorrarProyectoComponent } from './componentes/borrar-proyecto/borrar-proyecto.component';
 import { ConocimientoNuevoComponent } from './componentes/conocimiento-nuevo/conocimiento-nuevo.component';
 import { BorrarConocimientoComponent } from './componentes/borrar-conocimiento/borrar-conocimiento.component';
+import { EditarConocimientoComponent } from './componentes/editar-conocimiento/editar-conocimiento.component';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -52,7 +53,8 @@ import { BorrarConocimientoComponent } from './componentes/borrar-conocimiento/b
     ProyectoNuevoComponent,
     BorrarProyectoComponent,
     ConocimientoNuevoComponent,
-    BorrarConocimientoComponent
+    BorrarConocimientoComponent,
+    EditarConocimientoComponent
     
   ],
   imports: [

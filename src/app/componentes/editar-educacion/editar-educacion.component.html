@@ -25,10 +25,10 @@
                     </div>
                     <div class="mb-2 form-group">
                         <label for="catEduEditada" class="form-label">Categoría:</label>
-                        <select class="form-select" class="form-control" id="catEduEditada"
+                        <select class="form-select"  id="catEduEditada"
                              name="catEduEditada" [(ngModel)]="idCatEduEditada"
                             required>
-                            <option>Seleccione una opcion</option>
+                            
                             <option *ngFor="let categoria of categorias;" [value]="categoria.idCatEdu">
                                 {{categoria.nombreCatEdu}}</option>
                         </select>
