@@ -9,16 +9,24 @@
         </div>
   
         <!-- Modal body -->
-        <form class="custom-form" method="post">
+        <form [formGroup] = "form" class="custom-form" method="post">
             <div class="modal-body">
                 
-            <div class="mb-3">
+            <div class="mb-2">
                 <label for="email" class="form-label">Email:</label>
-                <input type="email"  class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="email">
+                <input type="email" formControlName="email" class="form-control" id="email" placeholder="Ingrese su email" name="email" [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}" [(ngModel)] = "email">
+            </div>
+            <div *ngIf = "Email?.errors && Email?.touched" class="mb-3">
+              <p *ngIf="Email?.hasError('required')" class="text-danger">Debe ingresar un email</p>
+              <p *ngIf="Email?.hasError('email')" class="text-danger">El formato es incorrecto</p>
             </div>
             <div class="mb-3">
                 <label for="pwd" class="form-label">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" [(ngModel)]="password">
+                <input type="password" formControlName="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is-valid': !Password?.errors && Password?.touched}" [(ngModel)]="password">
+            </div>
+            <div *ngIf = "Password?.errors && Password?.touched" class="mb-3">
+              <p *ngIf="Email?.hasError('required')" class="text-danger">Debe ingresar una contraseña</p>
+              
             </div>
             </div>
             <div class="mb-3 text-danger" *ngIf="error" >

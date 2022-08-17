@@ -23,16 +23,17 @@
                         <input type="number" min="0" step="5" max="100" class="form-control" id="avanceEditado" 
                             name="avanceEditado" [(ngModel)]="avanceEditado" required>
                     </div>
-                    <div class="mb-2 form-group">
+                    <div class="mb-2">
                         <label for="catSkillEditada" class="form-label">Categoría:</label>
                         <select class="form-select"  id="catSkillEditada"
                              name="catSkillEditada"  [(ngModel)]="idCatSkillEditada"
-                            required>
+                            required [ngClass] = "{'is-invalid': !idCatSkillEditada && this.formEditarSkill.touched}">
                             <!-- <option selected> {{skillAEditar?.catSkill?.nombreCatSkill}}</option> -->
                             
                             <option *ngFor="let categoria of categorias;" [value]="categoria.idCatSkill">
                                 {{categoria.nombreCatSkill}}</option>
                         </select>
+                        
 
                     </div>
                    

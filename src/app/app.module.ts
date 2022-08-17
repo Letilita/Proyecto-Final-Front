@@ -9,7 +9,7 @@ import { ConocimientosComponent } from './componentes/conocimientos/conocimiento
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './componentes/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { ExperienciaLaboralComponent } from './componentes/experiencia-laboral/experiencia-laboral.component';
 import { DescripcionSobreMiComponent } from './componentes/descripcion-sobre-mi/descripcion-sobre-mi.component';
@@ -28,6 +28,7 @@ import { ConocimientoNuevoComponent } from './componentes/conocimiento-nuevo/con
 import { BorrarConocimientoComponent } from './componentes/borrar-conocimiento/borrar-conocimiento.component';
 import { EditarConocimientoComponent } from './componentes/editar-conocimiento/editar-conocimiento.component';
 import { CategoriaSkillNuevaComponent } from './componentes/categoria-skill-nueva/categoria-skill-nueva.component';
+import { BorrarCategoriaSkillComponent } from './componentes/borrar-categoria-skill/borrar-categoria-skill.component';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -56,7 +57,8 @@ import { CategoriaSkillNuevaComponent } from './componentes/categoria-skill-nuev
     ConocimientoNuevoComponent,
     BorrarConocimientoComponent,
     EditarConocimientoComponent,
-    CategoriaSkillNuevaComponent
+    CategoriaSkillNuevaComponent,
+    BorrarCategoriaSkillComponent
     
   ],
   imports: [
@@ -64,6 +66,7 @@ import { CategoriaSkillNuevaComponent } from './componentes/categoria-skill-nuev
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   
   ],
   providers: [],

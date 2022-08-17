@@ -27,6 +27,10 @@ export class SkillService {
     return this.http.post<Skill>(this.apiServerUrl + '/Skills/agregar', skill);
   }
 
+/*   public deleteSkillsByIds(ids: number[]): Observable<any>{
+    return this.http.delete<void>(this.apiServerUrl + '/Skills/eliminar-varias', ids)
+  } */
+
   public deleteSkill(id: number): Observable<void>{
     return this.http.delete<void>(this.apiServerUrl + '/Skills/eliminar/' + id);
   }

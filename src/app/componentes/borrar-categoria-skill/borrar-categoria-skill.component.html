@@ -4,23 +4,25 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h5 class="modal-title">Eliminar conocimiento/habilidad</h5>
+                <h5 class="modal-title">Eliminar categoría</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
             <!-- Modal body -->
 
             <div class="modal-body">
-                <h3>{{skillABorrar?.nombreSkill}}</h3>
-                <h6>¿Está seguro que desea borrar este conocimiento/habilidad?</h6>
+                <h3>{{catSkillABorrar?.nombreCatSkill}}</h3>
+                <h6>¿Está seguro que desea borrar esta categoría?</h6>
+                <p class="verde">Si la elimina también se borrará todo su contenido (conocimiento y/o habilidades que contenga)</p>
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="onDelete()">Borrar conocimiento/Habilidad</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="onDelete()">Borrar estudio</button>
             </div>
 
         </div>
     </div>
+
 

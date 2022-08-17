@@ -18,7 +18,7 @@ export class EditarConocimientoComponent implements OnInit {
   catSkillEditada: CategoriaSkill | undefined
 
   categorias: CategoriaSkill[] = []
-  idCatSkillEditada: number | undefined = 0;
+  idCatSkillEditada: number | undefined ;
   idSkillEditada: number | undefined = 0;
 
 
@@ -56,8 +56,10 @@ ngOnChanges(changes: SimpleChanges) {
           this.onEditEvent.emit();
         }, err => { alert("Algo salió mal") })
 
-      }
+      } 
 
+    } else {
+      alert("¡Debe completar todos los campos! No deje vacía la categoría")
     }
 
 

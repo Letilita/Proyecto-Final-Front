@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataService } from 'src/app/servicios/data.service';
 
 
@@ -16,33 +17,29 @@ export class LoginComponent implements OnInit {
   dismiss: String = "";
   
   
+  form!: FormGroup;
 
-  constructor( private datos: DataService) { }
+  constructor( private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.datos.obtenerDatos().subscribe(data => {    
-    this.registros = data;
-    
-      
-  } );
+    this.form = this.formBuilder.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        
+      }
+    )    
+  }
+
+  get Email(){
+    return this.form.get('email')
+  }
+
+  get Password(){
+    return this.form.get('password')
   }
 
   login(){
-    console.log(this.email);
-    console.log(this.password);
-    console.log(this.registros.email);
-    console.log(this.registros.password);
-    if(this.email==this.registros.email && this.password==this.registros.password) {
-      this.datos.setLogueado(true);
-      this.dismiss="modal"
-      
-
-
-    } else {
-      this.error=true;
-
-    }
-
-  }
+      }
 
 }
