@@ -21,7 +21,7 @@
                     <div class="mb-2 form-group">
                         <label for="avanceEditado" class="form-label">Porcentaje de avance:</label>
                         <input type="number" min="0" step="5" max="100" class="form-control" id="avanceEditado" 
-                            name="avanceEditado" [(ngModel)]="avanceEditado" required>
+                            name="avanceEditado" [(ngModel)]="avanceEditado" required [ngClass] = "{'is-invalid': avanceEditado == undefined || avanceEditado >100! || avanceEditado <= 0  && this.formEditarSkill.touched}">
                     </div>
                     <div class="mb-2">
                         <label for="catSkillEditada" class="form-label">Categoría:</label>
