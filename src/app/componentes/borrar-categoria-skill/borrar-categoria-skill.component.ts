@@ -21,7 +21,6 @@ export class BorrarCategoriaSkillComponent implements OnInit {
   ngOnInit(): void {
     this.skillService.getSkills().subscribe(data => {
       this.conocimientos = data;
-      console.log(this.conocimientos);
 
     });
   }

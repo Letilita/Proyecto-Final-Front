@@ -9,7 +9,7 @@
         </div>
   
         <!-- Modal body -->
-        <form [formGroup] = "form" class="custom-form" method="post">
+        <form [formGroup] = "form" class="custom-form" (ngSubmit)="login($event)">
             <div class="modal-body">
                 
             <div class="mb-2">
@@ -35,7 +35,7 @@
   
         <!-- Modal footer -->
             <div class="modal-footer">
-            <button type="submit" (click)="login()" class="btn btn-success" [attr.data-bs-dismiss]="dismiss">Login</button>
+            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Login</button>
             </div>
         </form >
       </div>

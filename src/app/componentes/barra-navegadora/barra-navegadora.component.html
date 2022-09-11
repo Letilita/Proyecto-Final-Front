@@ -3,6 +3,9 @@
         <a class="navbar-brand" [routerLink]="'/'">
             <img src="assets/Logo_LP.png" alt="Avatar Logo" id="logo"> 
         </a>
+        <div class="navbar-brand my-0 py-0">
+            <img src="assets/LogoArgentinaPrograma.png" alt="" id="logo2">
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,7 +26,8 @@
               </li>
             </ul>
               <div class="float-sm-end" >
-                  <button type="button" class="btn btn-outline-secondary btn-sm m-2 float-sm-end" data-bs-toggle="modal" data-bs-target="#myModal">Login</button>
+                  <button *ngIf="!estaLogueado()" type="button" class="btn btn-sm m-2 float-sm-end " data-bs-toggle="modal" data-bs-target="#myModal" id="login">Login</button>
+                  <button *ngIf="estaLogueado()" type="button" class="btn btn-outline-secondary btn-sm m-2 float-sm-end"  (click)="logout()" >Logout</button>
               </div>
         </div>
     </div>

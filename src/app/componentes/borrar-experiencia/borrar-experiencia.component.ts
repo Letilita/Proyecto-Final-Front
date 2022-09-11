@@ -16,8 +16,6 @@ export class BorrarExperienciaComponent implements OnInit {
   @Output() onDeleteEvent = new EventEmitter();
   
   ngOnInit(): void {
-    
-    
   }
 
   onDelete():void{
@@ -25,8 +23,7 @@ export class BorrarExperienciaComponent implements OnInit {
     if(this.experienciaABorrar?.idExp!== undefined){
     this.experienciaService.deleteExperiencia(this.experienciaABorrar.idExp).subscribe(data => {      
       this.onDeleteEvent.emit();
-  }, err =>{alert("Algo salió mal")} )
- 
+    }, err =>{alert("Algo salió mal")} )
     }
   }
 }

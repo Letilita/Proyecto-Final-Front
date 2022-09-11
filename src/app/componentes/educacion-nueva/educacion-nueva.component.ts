@@ -35,13 +35,11 @@ export class EducacionNuevaComponent implements OnInit {
       alert("Debe seleccionar una categoría!")
     } else {
       this.catEduNueva = this.categorias?.find(categoria => categoria.idCatEdu == this.idCatEduNueva)
-      console.log(this.catEduNueva)
 
       if (this.catEduNueva) {
         const { institucionNueva, tituloNuevo, logoInstitucionNuevo, inicioNuevo, finNuevo, descripcionNueva, catEduNueva } = this;
         const nuevaEducacion: Educacion = { institucion: institucionNueva, titulo: tituloNuevo, logoInstitucion: logoInstitucionNuevo, inicio: inicioNuevo, fin: finNuevo, descripcion: descripcionNueva, catEdu: catEduNueva };
 
-        console.log(nuevaEducacion)
         this.educacionService.createEducacion(nuevaEducacion).subscribe(data => {
 
           this.onCreateEvent.emit();

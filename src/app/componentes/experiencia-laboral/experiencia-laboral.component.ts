@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Experiencia } from 'src/app/models/Experiencia.model';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 
 @Component({
@@ -13,15 +14,11 @@ export class ExperienciaLaboralComponent implements OnInit {
   puestos: String = ""
   trabajoActual?: Experiencia
 
-  constructor(private experienciaService: ExperienciaService) { }
+  constructor(private experienciaService: ExperienciaService, private autenticacionService: AutenticacionService) { }
 
   ngOnInit(): void {
     this.experienciaService.getExperiencias().subscribe(data => {
-
-
       this.experiencias = data;
-
-
     })
   }
   public convertirEnArray(cadena: String): String[] {
@@ -35,11 +32,13 @@ export class ExperienciaLaboralComponent implements OnInit {
   }
 
 
-renderizar(){
-  this.experienciaService.getExperiencias().subscribe(data => {
-
-
-    this.experiencias = data;
+  renderizar(){
+    this.experienciaService.getExperiencias().subscribe(data => {
+      this.experiencias = data;
   })}
+
+  estaLogueado(){
+    return this.autenticacionService.isLoggedIn();
+}
 
 }

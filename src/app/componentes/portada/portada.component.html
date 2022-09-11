@@ -1,7 +1,7 @@
 <!-- Portada - importante que ocupe toda la pantalla -->
 <div id="section1" class="d-flex align-items-center justify-content-center bg-dark text-white text-center" style="background-image: url({{usuario?.backgroundImage}})">
     <div class="mx-auto">
-        <div class="mb-2">
+        <div *ngIf="estaLogueado()" class="mb-2">
             <i class="fa-regular fa-pen-to-square m-3 verde shadowArce edicion" data-bs-toggle="modal"
             data-bs-target="#editarUsu" ></i>
         </div>

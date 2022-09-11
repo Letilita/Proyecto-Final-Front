@@ -7,7 +7,7 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
 import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
 import { ConocimientosComponent } from './componentes/conocimientos/conocimientos.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoginComponent } from './componentes/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
@@ -29,6 +29,7 @@ import { BorrarConocimientoComponent } from './componentes/borrar-conocimiento/b
 import { EditarConocimientoComponent } from './componentes/editar-conocimiento/editar-conocimiento.component';
 import { CategoriaSkillNuevaComponent } from './componentes/categoria-skill-nueva/categoria-skill-nueva.component';
 import { BorrarCategoriaSkillComponent } from './componentes/borrar-categoria-skill/borrar-categoria-skill.component';
+import { InterceptorService } from './servicios/interceptor.service';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -69,7 +70,7 @@ import { BorrarCategoriaSkillComponent } from './componentes/borrar-categoria-sk
     ReactiveFormsModule
   
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

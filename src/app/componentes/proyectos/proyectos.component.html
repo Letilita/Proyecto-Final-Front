@@ -4,7 +4,7 @@
 <div id="section3" class="container-fluid text-white" style="padding:60px 0px 0px 0px; background-color: black;">
 
   <!-- Botones de edición-->
-  <div class="mt-2">
+  <div *ngIf="estaLogueado()" class="mt-2">
     <i class="fa-regular fa-plus p-2 m-1 float-end mas-en-proyectos my-3 mt-2 text-muted" data-bs-toggle="modal"
       data-bs-target="#agregarProy"></i>
 

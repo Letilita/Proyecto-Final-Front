@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/Usuario.model';
-import { DataService } from 'src/app/servicios/data.service';
 import { PortadaService } from 'src/app/servicios/portada.service';
 
 @Component({
@@ -20,7 +19,7 @@ export class ContactoComponent implements OnInit {
       
       this.usuario = data;
 
-  } );
+    } );
     
   }
 

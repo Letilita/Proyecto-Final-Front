@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/servicios/data.service';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
+import { PortadaService } from 'src/app/servicios/portada.service';
 
 @Component({
   selector: 'app-sobre-mi',
@@ -13,17 +14,16 @@ export class SobreMiComponent implements OnInit {
   certificaciones: any;
   formacion: any;
   descripcion:any;
-  constructor(private datos: DataService) { }
+  constructor(private datos: PortadaService, private autenticacionService: AutenticacionService) { }
 
   ngOnInit(): void {
-    this.datos.obtenerDatos().subscribe(data => {
-      console.log(data);
-      this.experiencias = data.experiencia;
+    this.datos.getUsuario().subscribe(data => {    
       this.foto = data.imagenPersonal
-      this.certificaciones = data.educacion.certificaciones;
-      this.formacion = data.educacion.formacion;
-      this.descripcion =data.descripcion;
   } );
   }
+
+  estaLogueado(){
+    return this.autenticacionService.isLoggedIn();
+}
 
 }

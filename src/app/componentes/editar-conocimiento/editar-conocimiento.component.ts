@@ -42,13 +42,10 @@ ngOnChanges(changes: SimpleChanges) {
 
   onEdit(){
     this.catSkillEditada = this.categorias?.find(categoria => categoria.idCatSkill == this.idCatSkillEditada);
-    console.log(this.catSkillEditada);
-
+    
     if (this.nombreSkillEditada && this.avanceEditado && this.idSkillEditada && this.catSkillEditada) {
       const { idSkillEditada, nombreSkillEditada, avanceEditado, catSkillEditada } = this
       const skillEditada: Skill = { idSkill: idSkillEditada, nombreSkill: nombreSkillEditada, avance: avanceEditado, catSkill: catSkillEditada };
-
-      console.log(skillEditada)
 
       if (skillEditada !== undefined) {
         this.conocimientoService.updateSkill(skillEditada).subscribe(data => {

@@ -64,7 +64,7 @@
       </div>
       <!-- Acá la foto-->
       <div id="divImagen">
-        <i class="fa-regular fa-pen-to-square verde  text-success float-end"></i>
+        <i *ngIf="estaLogueado()" class="fa-regular fa-pen-to-square verde  text-success float-end"></i>
         <img [src]="foto" alt="Foto Leticia Portillo" class="rounded img-fluid align-items-end mb-0 pb-0" id="imgLeti">   
       </div> 
     </div>

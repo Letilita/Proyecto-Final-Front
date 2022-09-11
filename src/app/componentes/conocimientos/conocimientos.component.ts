@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriaSkill } from 'src/app/models/CategoriaSkill.model';
 import { Skill } from 'src/app/models/Skill.model';
-import { DataService } from 'src/app/servicios/data.service';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { SkillService } from 'src/app/servicios/skill.service';
 
 @Component({
@@ -18,20 +18,16 @@ export class ConocimientosComponent implements OnInit {
   catSkillActual?:CategoriaSkill;
   
 
-  constructor(private skillService: SkillService) { }
+  constructor(private skillService: SkillService, private autenticacionService: AutenticacionService) { }
 
   ngOnInit(): void {
       this.skillService.getSkills().subscribe(data => {    
       this.conocimientos = data;
-      console.log(this.conocimientos);
-      
-  } );
+      } );
 
       this.skillService.getCateSkills().subscribe(data => {    
       this.categorias = data;
-      console.log(this.filtrarPorCategoria(6));
-      
-  } );
+      } );
   }
 
   public filtrarPorCategoria(id: number | undefined): Skill[]{
@@ -42,15 +38,11 @@ export class ConocimientosComponent implements OnInit {
   renderizar(){
     this.skillService.getSkills().subscribe(data => {    
       this.conocimientos = data;
-      console.log(this.conocimientos);
-      
-  } );
+    } );
 
       this.skillService.getCateSkills().subscribe(data => {    
-      this.categorias = data;
-      console.log(this.filtrarPorCategoria(6));
-      
-  } );
+      this.categorias = data;  
+    } );
   }
 
   guardarSkill(skill: Skill){
@@ -60,4 +52,8 @@ export class ConocimientosComponent implements OnInit {
   guardarCategoriaSkill (catSkill: CategoriaSkill){
     this.catSkillActual = catSkill;
   }
+
+  estaLogueado(){
+    return this.autenticacionService.isLoggedIn();
+}
 }

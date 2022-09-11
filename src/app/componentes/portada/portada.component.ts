@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/Usuario.model';
-import { DataService } from 'src/app/servicios/data.service';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PortadaService } from 'src/app/servicios/portada.service';
 
 @Component({
@@ -16,15 +16,12 @@ export class PortadaComponent implements OnInit {
   // miPorfolio: any;
   // edicion: Boolean = false;
 
-  constructor( private portadaService: PortadaService) { }
+  constructor( private portadaService: PortadaService, private autenticacionService : AutenticacionService) { }
 
   ngOnInit(): void {    
     
     this.portadaService.getUsuario().subscribe(data => {
-      
       this.usuario=data;
-      
-     
   } );
   
   
@@ -32,9 +29,11 @@ export class PortadaComponent implements OnInit {
 
   renderizar(){
     this.portadaService.getUsuario().subscribe(data => {
-      
       this.usuario=data;
     })
   }
 
+  estaLogueado(){
+    return this.autenticacionService.isLoggedIn();
+}
 }

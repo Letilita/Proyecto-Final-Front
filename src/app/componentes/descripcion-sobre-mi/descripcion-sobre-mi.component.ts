@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/Usuario.model';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PortadaService } from 'src/app/servicios/portada.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class DescripcionSobreMiComponent implements OnInit {
   public descripcion: String= "";
 
 
-  constructor(private usuarioService: PortadaService) { }
+  constructor(private usuarioService: PortadaService, private autenticacionService: AutenticacionService) { }
 
   ngOnInit(): void {
     this.usuarioService.getUsuario().subscribe(data => {
@@ -28,4 +29,8 @@ export class DescripcionSobreMiComponent implements OnInit {
     })
 
   }
+
+  estaLogueado(){
+    return this.autenticacionService.isLoggedIn();
+}
 }

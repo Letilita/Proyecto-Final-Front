@@ -2,7 +2,7 @@
 <div id="section4" class="container-fluid text-white bg-dark">
   <div class="d-flex ">
     <h3>Conocimientos y habilidades</h3>
-    <i class="fa-regular fa-plus icono-principal p-2 m-1" data-bs-toggle="modal"
+    <i *ngIf="estaLogueado()" class="fa-regular fa-plus icono-principal p-2 m-1" data-bs-toggle="modal"
     data-bs-target="#agregarCatSkill"></i>
   </div>
 
@@ -14,7 +14,7 @@
         <div class="d-flex justify-content-between">
           <h3> {{categoria.nombreCatSkill}}</h3>
           <div class="d-flex flex-column">
-            <i class="fa-regular fa-trash-can m-1 mt-0" data-bs-toggle="modal"
+            <i *ngIf="estaLogueado()" class="fa-regular fa-trash-can  icono-principal" data-bs-toggle="modal"
             data-bs-target="#eliminarCatSkill"(click)="guardarCategoriaSkill(categoria)"></i>
           </div>
         </div>
@@ -35,7 +35,7 @@
 
             </div>
 
-            <div class="d-flex">
+            <div *ngIf="estaLogueado()" class="d-flex">
               
               <i class="fa-regular fa-pen-to-square iconoEnBarra text-success" data-bs-toggle="modal"
               data-bs-target="#editarConocimiento" (click)="guardarSkill(item)"></i>
@@ -53,7 +53,7 @@
         </div>
 
         <div class="d-flex justify-content-end">
-          <i class="fa-regular fa-plus icono-principal" data-bs-toggle="modal"
+          <i *ngIf="estaLogueado()" class="fa-regular fa-plus icono-principal" data-bs-toggle="modal"
             data-bs-target="#agregarConocimiento" (click)="guardarCategoriaSkill(categoria)"></i>
         </div>
       </div>

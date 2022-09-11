@@ -31,7 +31,6 @@ export class EditarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuarioService.getUsuario().subscribe(data => {
-      console.log(data)
       this.usuarioAEditar = data
       this.nombreEditado = this.usuarioAEditar?.nombre;
       this.profesionEditada = this.usuarioAEditar?.profesion;
@@ -50,9 +49,7 @@ export class EditarUsuarioComponent implements OnInit {
   onEdit() {
     if (this.usuarioAEditar) {
       const usuarioEditado = { nombre: this.nombreEditado, profesion: this.profesionEditada, backgroundImage: this.backgroundImageEditada, linkIn: this.linkInEditado, linkGH: this.linkGHEditado, linkWP: this.linkWPEditado, linkIG: this.linkIGEditado, email: this.emailEditado, imagenPersonal: this.usuarioAEditar.imagenPersonal, descripcion: this.usuarioAEditar.descripcion, id: this.usuarioAEditar.id, password: this.usuarioAEditar.password }
-
-      console.log(usuarioEditado)
-
+   
        if (usuarioEditado !== undefined) {
         this.usuarioService.updateUsuario(usuarioEditado).subscribe(data => {
 

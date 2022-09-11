@@ -20,12 +20,8 @@ export class BorrarProyectoComponent implements OnInit {
 
   ngOnInit(): void {
     this.proyectoService.getProyectos().subscribe(data => {
-      
       this.proyectos = data;
-      console.log(this.proyectos)
-
-  } );
-
+    } );
   }
 
   onDelete(): void {

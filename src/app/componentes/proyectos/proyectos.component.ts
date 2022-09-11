@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Proyecto } from 'src/app/models/Proyecto.model';
-import { DataService } from 'src/app/servicios/data.service';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ProyectosService } from 'src/app/servicios/proyectos.service';
 
 @Component({
@@ -24,14 +24,11 @@ export class ProyectosComponent implements OnInit {
   linkProyAEditar: String  | undefined= "";
 
 
-  constructor(private proyectoService: ProyectosService) { }
+  constructor(private proyectoService: ProyectosService, private autenticacionService: AutenticacionService) { }
 
   ngOnInit(): void {
     this.proyectoService.getProyectos().subscribe(data => {
-
       this.proyectos = data;
-      console.log(this.proyectos)
-
     });
 
   }
@@ -71,18 +68,17 @@ export class ProyectosComponent implements OnInit {
   }
 
   onEdit() {
-
-    console.log(this.nombreProyAEditar)
-
     if (this.nombreProyAEditar && this.descripcionProyAEditar && this.fechaProyAEditar && this.imagenProyAEditar  && this.proyectoAEditar) {
      const proyectoEditado: Proyecto= { idProy: this.proyectoAEditar.idProy, nombreProy: this.nombreProyAEditar, descripcionProy: this.descripcionProyAEditar, fechaProy: this.fechaProyAEditar, imagenProy: this.imagenProyAEditar, linkProy: this.linkProyAEditar };
-
-      console.log(proyectoEditado)
 
       this.proyectoService.updateProyecto(proyectoEditado).subscribe(data => {
         this.renderizar()
       }, err => { alert("Algo salió mal") })
     }
   }
+
+  estaLogueado(){
+    return this.autenticacionService.isLoggedIn();
+}
 }
 

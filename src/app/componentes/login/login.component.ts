@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { DataService } from 'src/app/servicios/data.service';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   
   form!: FormGroup;
 
-  constructor( private formBuilder: FormBuilder) { }
+  constructor( private formBuilder: FormBuilder, private autenticacionService: AutenticacionService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
@@ -28,7 +28,9 @@ export class LoginComponent implements OnInit {
         password: ['', [Validators.required, Validators.minLength(8)]],
         
       }
-    )    
+    )  
+    
+    
   }
 
   get Email(){
@@ -39,7 +41,13 @@ export class LoginComponent implements OnInit {
     return this.form.get('password')
   }
 
-  login(){
-      }
+  login(event: Event){
+    event.preventDefault;
+    this.autenticacionService.iniciarSesion(this.form.value).subscribe(()=>{
+      console.log("El usuarioAutenticado es", this.autenticacionService.isLoggedIn()) //si logueado
+    }, err => {
+      console.log("No se logueo: "+ err.status)  // si error
+    })  
+  }
 
 }

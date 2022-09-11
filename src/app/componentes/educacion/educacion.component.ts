@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriaEducacion } from 'src/app/models/CategoriaEducacion.model';
 import { Educacion } from 'src/app/models/Educacion.model';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 
 @Component({
@@ -15,20 +16,17 @@ export class EducacionComponent implements OnInit {
   educacionesFiltradas: Educacion[] = [];
   educacionActual?: Educacion
 
-  constructor(private educacionService: EducacionService) { }
+  constructor(private educacionService: EducacionService, private autenticacionService: AutenticacionService) { }
 
   ngOnInit(): void {
 
       this.educacionService.getEducaciones().subscribe(data => {    
       this.educaciones = data;
-      console.log(this.educaciones)
-      
       
   } );
 
       this.educacionService.getCateEducacion().subscribe(data => {    
       this.categorias = data;
-      
       
   } );
 
@@ -43,18 +41,12 @@ export class EducacionComponent implements OnInit {
 
   renderizar(){
     this.educacionService.getEducaciones().subscribe(data => {    
-      this.educaciones = data;
-      console.log(this.educaciones)
-      
-      
-  } );
+      this.educaciones = data;      
+    } );
 
-      this.educacionService.getCateEducacion().subscribe(data => {    
-      this.categorias = data;
-      
-      
-  } );
-
+    this.educacionService.getCateEducacion().subscribe(data => {    
+      this.categorias = data;   
+    } );
 
   }
 
@@ -62,5 +54,8 @@ export class EducacionComponent implements OnInit {
     this.educacionActual=edu;
 
   }
+  estaLogueado(){
+    return this.autenticacionService.isLoggedIn();
+}
 
 }

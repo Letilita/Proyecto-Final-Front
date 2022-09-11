@@ -48,8 +48,6 @@ export class ConocimientoNuevoComponent implements OnInit {
         
         const { nombreSkillNuevo, avanceNuevo, catSkillAsignada } = this;
         const nuevaSkill: Skill = { nombreSkill: nombreSkillNuevo, avance: avanceNuevo, catSkill: catSkillAsignada };
-
-        console.log(nuevaSkill)
         this.skillService.createSkill(nuevaSkill).subscribe(data => {
 
           this.onCreateEvent.emit();

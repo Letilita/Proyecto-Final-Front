@@ -1,7 +1,7 @@
 <div id="sobreMi" class="container tab-pane active ocupa-60">
     <div class="d-flex">
       <h1>Sobre mí</h1>
-      <i class="fa-regular fa-pen-to-square negra m-3 text-success" data-bs-toggle="modal" data-bs-target="#editarDesc"></i>
+      <i *ngIf="estaLogueado()" class="fa-regular fa-pen-to-square negra m-3 text-success" data-bs-toggle="modal" data-bs-target="#editarDesc"></i>
     </div>
     <div class="mt-3">
       <p  class= "roboto" [innerHTML]= descripcion>                            

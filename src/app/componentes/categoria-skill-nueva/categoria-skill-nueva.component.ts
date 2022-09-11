@@ -22,16 +22,12 @@ export class CategoriaSkillNuevaComponent implements OnInit {
   onCreate(){
 
     if (this.nombreCatSkillNueva) {
-        
-      
+
       const nuevaCatSkill: CategoriaSkill = { nombreCatSkill: this.nombreCatSkillNueva };
 
-      console.log(nuevaCatSkill)
       this.skillService.createCateSkill(nuevaCatSkill).subscribe(data => {
-
         this.onCreateEvent.emit();
         this.nombreCatSkillNueva = "";
-
       }, err => {
         console.log(err);
         alert("Algo salió mal")
