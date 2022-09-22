@@ -14,7 +14,8 @@ export class EducacionComponent implements OnInit {
   educaciones: Educacion[]= [];
   categorias: CategoriaEducacion[] = [];
   educacionesFiltradas: Educacion[] = [];
-  educacionActual?: Educacion
+  educacionActual?: Educacion;
+  catEduActual?: CategoriaEducacion;
 
   constructor(private educacionService: EducacionService, private autenticacionService: AutenticacionService) { }
 
@@ -56,6 +57,10 @@ export class EducacionComponent implements OnInit {
   }
   estaLogueado(){
     return this.autenticacionService.isLoggedIn();
+}
+
+guardarCategoriaEdu (catEdu: CategoriaEducacion){
+  this.catEduActual = catEdu;
 }
 
 }

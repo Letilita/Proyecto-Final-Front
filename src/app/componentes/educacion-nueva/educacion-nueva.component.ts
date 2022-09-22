@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CategoriaEducacion } from 'src/app/models/CategoriaEducacion.model';
 import { Educacion } from 'src/app/models/Educacion.model';
 import { EducacionService } from 'src/app/servicios/educacion.service';
@@ -19,6 +19,9 @@ export class EducacionNuevaComponent implements OnInit {
   catEduNueva: CategoriaEducacion | undefined
   categorias: CategoriaEducacion[] | undefined
   idCatEduNueva: number = 0;
+  nombreCatEduAsignada?: String
+
+  @Input() catEduAsignada?: CategoriaEducacion
 
   @Output() onCreateEvent = new EventEmitter();
 
@@ -31,14 +34,12 @@ export class EducacionNuevaComponent implements OnInit {
   }
 
   onCreate() {
-    if (this.idCatEduNueva == 0) {
-      alert("Debe seleccionar una categoría!")
-    } else {
+    
       this.catEduNueva = this.categorias?.find(categoria => categoria.idCatEdu == this.idCatEduNueva)
 
-      if (this.catEduNueva) {
-        const { institucionNueva, tituloNuevo, logoInstitucionNuevo, inicioNuevo, finNuevo, descripcionNueva, catEduNueva } = this;
-        const nuevaEducacion: Educacion = { institucion: institucionNueva, titulo: tituloNuevo, logoInstitucion: logoInstitucionNuevo, inicio: inicioNuevo, fin: finNuevo, descripcion: descripcionNueva, catEdu: catEduNueva };
+      if (this.catEduAsignada) {
+        const { institucionNueva, tituloNuevo, logoInstitucionNuevo, inicioNuevo, finNuevo, descripcionNueva, catEduAsignada } = this;
+        const nuevaEducacion: Educacion = { institucion: institucionNueva, titulo: tituloNuevo, logoInstitucion: logoInstitucionNuevo, inicio: inicioNuevo, fin: finNuevo, descripcion: descripcionNueva, catEdu: catEduAsignada };
 
         this.educacionService.createEducacion(nuevaEducacion).subscribe(data => {
 
@@ -55,8 +56,13 @@ export class EducacionNuevaComponent implements OnInit {
         }
         );
 
-      }
+      
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.nombreCatEduAsignada = this.catEduAsignada?.nombreCatEdu;
+  
   }
 }
 

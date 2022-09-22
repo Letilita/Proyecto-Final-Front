@@ -14,7 +14,7 @@
                 
             <div class="mb-2">
                 <label for="email" class="form-label">Email:</label>
-                <input type="email" formControlName="email" class="form-control" id="email" placeholder="Ingrese su email" name="email" [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}" [(ngModel)] = "email">
+                <input type="email" formControlName="email" class="form-control" id="email" placeholder="Ingrese su email" name="email" [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}" >
             </div>
             <div *ngIf = "Email?.errors && Email?.touched" class="mb-3">
               <p *ngIf="Email?.hasError('required')" class="text-danger">Debe ingresar un email</p>
@@ -29,15 +29,17 @@
               
             </div>
             </div>
-            <div class="mb-3 text-danger" *ngIf="error" >
+            <div class="mb-3 text-danger" *ngIf="noAutenticado" >
                 <label for="" class="form-label mx-3">Usuario y/o contraseña inválido</label>
             </div>
   
         <!-- Modal footer -->
             <div class="modal-footer">
-            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Login</button>
+            <button type="submit" class="btn btn-success" >Login</button>
             </div>
         </form >
       </div>
     </div>
   </div>
+
+  

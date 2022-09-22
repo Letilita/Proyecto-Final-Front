@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
   password: string = "";
   registros: any;
   error: Boolean = false;
-  dismiss: String = "";
+  noAutenticado: Boolean = false
+  
   
   
   form!: FormGroup;
@@ -44,9 +45,13 @@ export class LoginComponent implements OnInit {
   login(event: Event){
     event.preventDefault;
     this.autenticacionService.iniciarSesion(this.form.value).subscribe(()=>{
-      console.log("El usuarioAutenticado es", this.autenticacionService.isLoggedIn()) //si logueado
+      console.log("El usuarioAutenticado es", this.autenticacionService.isLoggedIn());
+      this.noAutenticado = false;      
+      this.form.reset() //si logueado      
+      window.location.reload();
     }, err => {
-      console.log("No se logueo: "+ err.status)  // si error
+      this.noAutenticado = true;
+      console.log("No se logueo: "+ err.message)  // si error
     })  
   }
 

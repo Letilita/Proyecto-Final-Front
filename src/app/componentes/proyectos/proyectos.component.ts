@@ -58,7 +58,7 @@ export class ProyectosComponent implements OnInit {
   }
 
   onSelect() {
-    console.log(this.idProyAEditar)
+    
     this.proyectoAEditar = this.proyectos.find(proy => proy.idProy == this.idProyAEditar);
     this.nombreProyAEditar = this.proyectoAEditar?.nombreProy;
     this.descripcionProyAEditar = this.proyectoAEditar?.descripcionProy;
