@@ -16,8 +16,6 @@ export class LoginComponent implements OnInit {
   error: Boolean = false;
   noAutenticado: Boolean = false
   
-  
-  
   form!: FormGroup;
 
   constructor( private formBuilder: FormBuilder, private autenticacionService: AutenticacionService) { }
@@ -26,12 +24,9 @@ export class LoginComponent implements OnInit {
     this.form = this.formBuilder.group(
       {
         email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(8)]],
-        
+        password: ['', [Validators.required, Validators.minLength(8)]], 
       }
     )  
-    
-    
   }
 
   get Email(){
