@@ -20,6 +20,7 @@ export class ContactoComponent implements OnInit {
   body!: String;
   myModal = document.getElementById('confirmacionEnvio');
   mostrarConfirmacion: Boolean = false;
+  mostrarError: Boolean = false;
 
   mailForm!: FormGroup;
   
@@ -71,7 +72,12 @@ export class ContactoComponent implements OnInit {
       )
      this.mailForm.reset();
     }, err => {
-      alert("No se pudo enviar el mensaje")
+      this.mostrarError = true;    
+      
+      setTimeout(()=>{
+        this.mostrarError = false;
+      }, 8000
+      )
     })  
     
 

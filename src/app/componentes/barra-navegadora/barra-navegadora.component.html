@@ -1,35 +1,83 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" [routerLink]="'/'">
-            <img src="assets/Logo_LP.png" alt="Avatar Logo" id="logo"> 
-        </a>
-        <div class="navbar-brand my-0 py-0">
-            <img src="assets/LogoArgentinaPrograma.png" alt="" id="logo2">
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mynavbar" style="width: 100%">
-            <ul class="navbar-nav mx-auto">
-
-              <li class="nav-item">
-                  <a class="nav-link" [routerLink]="'/sobre-mi'">Sobre mí</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" [routerLink]="'/proyectos'">Proyectos</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" [routerLink]="'/conocimientos'">Conocimientos</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" [routerLink]="'/contacto'">Contacto</a>
-              </li>
-            </ul>
-              <div class="float-sm-end" >
-                  <button *ngIf="!estaLogueado()" type="button" class="btn btn-sm m-2 float-sm-end " data-bs-toggle="modal" data-bs-target="#myModal" id="login">Login</button>
-                  <button *ngIf="estaLogueado()" type="button" class="btn btn-outline-secondary btn-sm m-2 float-sm-end"  (click)="logout()" >Logout</button>
-              </div>
-        </div>
+  <div class="container-fluid">
+    <div class="d-flex">
+      <a class="navbar-brand" [routerLink]="'/'">
+        <img src="assets/Logo_LP.png" alt="Avatar Logo" id="logo" />
+      </a>
+      <div class="navbar-brand my-0 py-0">
+        <img src="assets/LogoArgentinaPrograma.png" alt="" id="logo2" />
+      </div>
     </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mynavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar" style="width: 100%">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'/sobre-mi'"
+            data-bs-toggle="collapse"
+            data-bs-target="#mynavbar"
+            >Sobre mí</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'/proyectos'"
+            data-bs-toggle="collapse"
+            data-bs-target="#mynavbar"
+            >Proyectos</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'/conocimientos'"
+            data-bs-toggle="collapse"
+            data-bs-target="#mynavbar"
+            >Conocimientos</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'/contacto'"
+            data-bs-toggle="collapse"
+            data-bs-target="#mynavbar"
+            >Contacto</a
+          >
+        </li>
+      </ul>
+      <div class="float-sm-end">
+        <button
+          *ngIf="!estaLogueado()"
+          type="button"
+          class="btn btn-sm m-2 float-sm-end"
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+          id="login"
+        >
+          Login
+        </button>
+        <button
+          *ngIf="estaLogueado()"
+          type="button"
+          class="btn btn-outline-secondary btn-sm m-2 float-sm-end"
+          (click)="logout()"
+          data-bs-toggle="collapse"
+          data-bs-target="#mynavbar"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
 </nav>
 <app-login></app-login>

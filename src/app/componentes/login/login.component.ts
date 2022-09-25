@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   
   form!: FormGroup;
 
-  constructor( private formBuilder: FormBuilder, private autenticacionService: AutenticacionService) { }
+  constructor( private formBuilder: FormBuilder, private autenticacionService: AutenticacionService, private rutas: Router ) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
@@ -42,7 +43,8 @@ export class LoginComponent implements OnInit {
     this.autenticacionService.iniciarSesion(this.form.value).subscribe(()=>{
       console.log("El usuarioAutenticado es", this.autenticacionService.isLoggedIn());
       this.noAutenticado = false;      
-      this.form.reset() //si logueado      
+      this.form.reset(); //si logueado        
+      //this.rutas.navigate(['/']);
       window.location.reload();
     }, err => {
       this.noAutenticado = true;

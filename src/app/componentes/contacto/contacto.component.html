@@ -87,7 +87,7 @@
           </a>
         </div>
         <div class="my-3">
-          <a [href]="usuario?.linkWP" target="_blank">
+          <a href="https://wa.me/5491151171835" target="_blank">
             <i class="fab fa-whatsapp iconoContacto"></i>
           </a>
         </div>
@@ -103,9 +103,13 @@
         </div>
       </div>
     </div>
+    <div *ngIf="mostrarConfirmacion" class="alert alert-warning mt-2 w-75 mx-4" role="alert">
+      ¡El mensaje se envió correctamente!
+    </div>
+    <div *ngIf="mostrarError" class="alert alert-danger mt-2 w-75 mx-4" role="alert">
+      ¡El mensaje no se pudo enviar!
+    </div>
   </div>
-  <div *ngIf="mostrarConfirmacion" class="alert alert-warning mt-2" role="alert">
-    ¡El mensaje se envió correctamente!
-  </div>
+
 </div>
 

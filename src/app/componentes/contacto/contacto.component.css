@@ -3,7 +3,7 @@
     background-color: #c7b299;
     color: black;
     padding:100px 20px;
-    height: 100vh;
+    min-height: 100vh;
     
 }
 .sinDecoracion{
