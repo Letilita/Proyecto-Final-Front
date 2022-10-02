@@ -30,6 +30,7 @@ import { EditarConocimientoComponent } from './componentes/editar-conocimiento/e
 import { CategoriaSkillNuevaComponent } from './componentes/categoria-skill-nueva/categoria-skill-nueva.component';
 import { BorrarCategoriaSkillComponent } from './componentes/borrar-categoria-skill/borrar-categoria-skill.component';
 import { InterceptorService } from './servicios/interceptor.service';
+import { PaginaInexistenteComponent } from './componentes/pagina-inexistente/pagina-inexistente.component';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -59,7 +60,8 @@ import { InterceptorService } from './servicios/interceptor.service';
     BorrarConocimientoComponent,
     EditarConocimientoComponent,
     CategoriaSkillNuevaComponent,
-    BorrarCategoriaSkillComponent
+    BorrarCategoriaSkillComponent,
+    PaginaInexistenteComponent
     
   ],
   imports: [

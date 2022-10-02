@@ -79,3 +79,41 @@ i {
     font-weight: bold;
     margin: auto;
 }
+
+#fijo{
+
+    max-height: 100vh;
+}
+.ocupa-todo{
+    min-height: 85vh;
+}
+
+.scroll{
+    overflow-y: scroll;
+    max-height: 80vh;
+}
+
+
+  
+  .scroll::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  } 
+
+
+ .scroll::-webkit-scrollbar {
+    background: #bebcbc; 
+    border-radius: 20px; 
+    opacity: 0.5; 
+    width: 0.5rem;   
+    height: 50%;  
+}
+.scroll::-webkit-scrollbar-thumb {
+    background: #979595; 
+    opacity: 0.4;
+    width: 0.6rem;
+    height: 50%;
+    border-radius: 20px;
+  }
+
+
+

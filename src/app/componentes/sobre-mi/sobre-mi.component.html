@@ -1,73 +1,82 @@
-<!-- Seción 2 Sobre mí-->
-<div id="section2" class="container-fluid mb-0">   
-     
-    <!-- Acá se genera un espacio que se va a ir rellenando según el botón que se aprete-->
-    <div class="row mt-5 mb-0 pb-0 mx-1">
-      <div class="col-md-9 tab-content mb-0 pt-0 pb-0">
-        <!-- Lo que aparece por default. Id= sobreMí-->
-        <app-descripcion-sobre-mi id="sobreMi" class="container tab-pane active ocupa-60"></app-descripcion-sobre-mi>
-        
-        <!-- Relleno que aparece si se apreta experiencia-->
-        <app-experiencia-laboral id="experiencia" class="container tab-pane fade m-0 p-0 ocupa-60"></app-experiencia-laboral>
-        <!-- <ul id="experiencia" class="container tab-pane fade m-0 p-0 ocupa-60" >
-          <h2 class="mt-0">Experiencia Laboral</h2>
-          <li *ngFor="let trabajo of experiencias" class="mb-2" style="list-style-type: none;" >
-            <div class="row g-0 tarjeta mb-4">
-              <div class="col-md-1">
-                <img [src]="trabajo.logoEmpresa" class="img-fluid rounded logoEnTarjeta mt-3 mb-3" alt="imagen-logo"> 
-              </div>
-              <div class="col-md-8">
-                <div class="card-body justify-content-start">
-                  <h5 class="card-title">{{trabajo.Empresa}}</h5>
-                  <ul class="card-text small">
-                    <li *ngFor="let puesto of trabajo.puesto">
-                      {{puesto}}
-                    </li>
-                    <p class="card-text text-end"><small class="text-muted">{{trabajo.inicio}} - {{trabajo.fin}}</small></p>
-                  </ul>
-                </div>
-              </div>
-              <div class="d-flex justify-content-end col-2 mt-2">
-                <i class="fa-regular fa-trash-can text-muted m-2"></i>
-                <i class="fa-regular fa-pen-to-square text-muted m-2"></i>
-              </div>
-            </div>
-          </li>
-          <div class="d-flex justify-content-center">
-            <i class="fa-regular fa-plus icono-principal p-2 text-muted float-end"></i>
-          </div> 
-        </ul> -->
-        
-          <!-- Relleno que aparece si se apreta formación-->
+<div id="section2" class="container-fluid mb-0">
+  <!-- Acá se genera un espacio que se va a ir rellenando según el botón que se aprete-->
+  <div class="row mt-5 mb-0 pb-0 mx-1 ocupa-todo">
+    <div class="col-md-9 tab-content mb-0 pt-0 pb-0 scroll" data-bs-spy="scroll">
+      <!-- Lo que aparece por default. Id= sobreMí-->
+      <app-descripcion-sobre-mi
+        id="sobreMi"
+        class="container tab-pane active ocupa-60"
+      ></app-descripcion-sobre-mi>
 
-        <app-educacion id="formacion" class="container tab-pane fade ocupa-60 m-0 p-0"></app-educacion>
-        
-      </div> 
-    <div class="col-md-3 d-flex flex-column justify-content-between mt-5 mb-0 pb-0" > 
+      <!-- Relleno que aparece si se apreta experiencia-->
+      <app-experiencia-laboral
+        id="experiencia"
+        class="container tab-pane fade m-0 p-0 ocupa-60"
+      ></app-experiencia-laboral>
+
+      <!-- Relleno que aparece si se apreta formación-->
+
+      <app-educacion
+        id="formacion"
+        class="container tab-pane fade ocupa-60 m-0 p-0"
+      ></app-educacion>
+    </div>
+    <div
+      class="col-md-3  mt-5 mb-0 pb-0 d-flex flex-column justify-content-between" id="fijo"
+    >
       <!-- Acá está la barra navegadora de la sección. Según qué elemento se cliequea es lo que se muestra-->
-      <div class="d-flex flex-column justify-content-between mt-3 mx-1" id="navSobremi">
-    
+      <div
+        class="d-flex flex-column justify-content-between mt-3 mx-1"
+        id="navSobremi"
+      >
         <ul class="nav nav-tabs flex-column" role="tablist">
           <li class="nav-item">
-            <a class="nav-link text-muted active" data-bs-toggle="tab" href="#sobreMi">¿Quién soy?</a>
+            <a
+              class="nav-link text-muted active"
+              data-bs-toggle="tab"
+              href="#sobreMi"
+              >¿Quién soy?</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link text-muted" data-bs-toggle="tab" href="#experiencia">Experiencia</a>
+            <a
+              class="nav-link text-muted"
+              data-bs-toggle="tab"
+              href="#experiencia"
+              >Experiencia</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link text-muted" data-bs-toggle="tab" href="#formacion">Formación</a>
+            <a
+              class="nav-link text-muted"
+              data-bs-toggle="tab"
+              href="#formacion"
+              >Formación</a
+            >
           </li>
           <li class="nav-item">
-              <a class="nav-link text-muted"  href="assets/CV_Leticia Portillo_español.pdf" download>CV en pdf</a>
+            <a
+              class="nav-link text-muted"
+              href="assets/CV_Leticia Portillo_español.pdf"
+              download
+              >CV en pdf</a
+            >
           </li>
-        </ul>          
+        </ul>
       </div>
       <!-- Acá la foto-->
-      <div id="divImagen">
-        <i *ngIf="estaLogueado()" class="fa-regular fa-pen-to-square verde  text-success float-end"></i>
-        <img [src]="foto" alt="Foto Leticia Portillo" class="rounded img-fluid align-items-end mb-0 pb-0" id="imgLeti">   
-      </div> 
+      <div id="divImagen my-0 py-0">
+        <i
+          *ngIf="estaLogueado()"
+          class="fa-regular fa-pen-to-square verde text-success float-end"
+        ></i>
+        <img
+          [src]="foto"
+          alt="Foto Leticia Portillo"
+          class="rounded img-fluid align-items-end mb-0 pb-0"
+          id="imgLeti"
+        />
+      </div>
     </div>
   </div>
-
 </div>

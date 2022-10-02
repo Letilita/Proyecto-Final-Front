@@ -1,0 +1,10 @@
+#pagInexistente{
+    background-image: url("../../../assets/juego-de-la-vida-verde.jpg");
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.contenedor{
+    background-color: black;
+    opacity: 0.7;
+}

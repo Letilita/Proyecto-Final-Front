@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConocimientosComponent } from './componentes/conocimientos/conocimientos.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
+import { PaginaInexistenteComponent } from './componentes/pagina-inexistente/pagina-inexistente.component';
 import { PortadaComponent } from './componentes/portada/portada.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'proyectos', component: ProyectosComponent},
   {path: 'conocimientos', component: ConocimientosComponent},
   {path: 'contacto', component: ContactoComponent},
+  { path: '**', pathMatch: 'full',   component: PaginaInexistenteComponent },
   
 ];
 
