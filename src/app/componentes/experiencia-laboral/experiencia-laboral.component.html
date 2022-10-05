@@ -6,7 +6,7 @@
         <img [src]="trabajo.logoEmpresa" class="img-fluid rounded logoEnTarjeta mt-3 mb-3" alt="imagen-logo">
       </div>
       <div class="col-md-8">
-        <div class="card-body justify-content-start">
+        <div class="card-body justify-content-start mx-3">
           <h5 class="card-title roboto fw-bold">{{trabajo.empresa}}</h5>
           <ul class="card-text small roboto">
             <li class="roboto" *ngFor="let puesto of convertirEnArray(trabajo.puesto)">

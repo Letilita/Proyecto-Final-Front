@@ -61,8 +61,7 @@ import { PaginaInexistenteComponent } from './componentes/pagina-inexistente/pag
     EditarConocimientoComponent,
     CategoriaSkillNuevaComponent,
     BorrarCategoriaSkillComponent,
-    PaginaInexistenteComponent
-    
+    PaginaInexistenteComponent,
   ],
   imports: [
     BrowserModule,
