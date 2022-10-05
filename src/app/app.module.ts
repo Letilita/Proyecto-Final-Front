@@ -31,6 +31,7 @@ import { CategoriaSkillNuevaComponent } from './componentes/categoria-skill-nuev
 import { BorrarCategoriaSkillComponent } from './componentes/borrar-categoria-skill/borrar-categoria-skill.component';
 import { InterceptorService } from './servicios/interceptor.service';
 import { PaginaInexistenteComponent } from './componentes/pagina-inexistente/pagina-inexistente.component';
+import { SpinnerComponent } from './componentes/spinner/spinner.component';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -62,6 +63,7 @@ import { PaginaInexistenteComponent } from './componentes/pagina-inexistente/pag
     CategoriaSkillNuevaComponent,
     BorrarCategoriaSkillComponent,
     PaginaInexistenteComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
