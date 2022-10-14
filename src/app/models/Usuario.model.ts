@@ -11,6 +11,7 @@ export interface Usuario{
     linkIG: String ;
     imagenPersonal: String ;
     descripcion: String;
+    cv: String;
 
     
 }

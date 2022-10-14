@@ -48,7 +48,7 @@ export class EditarUsuarioComponent implements OnInit {
 
   onEdit() {
     if (this.usuarioAEditar) {
-      const usuarioEditado = { nombre: this.nombreEditado, profesion: this.profesionEditada, backgroundImage: this.backgroundImageEditada, linkIn: this.linkInEditado, linkGH: this.linkGHEditado, linkWP: this.linkWPEditado, linkIG: this.linkIGEditado, email: this.emailEditado, imagenPersonal: this.usuarioAEditar.imagenPersonal, descripcion: this.usuarioAEditar.descripcion, id: this.usuarioAEditar.id, password: this.usuarioAEditar.password }
+      const usuarioEditado = { nombre: this.nombreEditado, profesion: this.profesionEditada, backgroundImage: this.backgroundImageEditada, linkIn: this.linkInEditado, linkGH: this.linkGHEditado, linkWP: this.linkWPEditado, linkIG: this.linkIGEditado, email: this.emailEditado, imagenPersonal: this.usuarioAEditar.imagenPersonal, descripcion: this.usuarioAEditar.descripcion, id: this.usuarioAEditar.id, password: this.usuarioAEditar.password, cv:this.usuarioAEditar.cv }
    
        if (usuarioEditado !== undefined) {
         this.usuarioService.updateUsuario(usuarioEditado).subscribe(data => {

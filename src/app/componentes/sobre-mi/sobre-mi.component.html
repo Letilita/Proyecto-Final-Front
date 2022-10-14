@@ -1,7 +1,10 @@
 <div id="section2" class="container-fluid mb-0">
   <!-- Acá se genera un espacio que se va a ir rellenando según el botón que se aprete-->
   <div class="row mt-5 mb-0 pb-0 mx-1 ocupa-todo">
-    <div class="col-md-9 tab-content mb-0 pt-0 pb-0 scroll" data-bs-spy="scroll">
+    <div
+      class="col-md-9 tab-content mb-0 pt-0 pb-0 scroll"
+      data-bs-spy="scroll"
+    >
       <!-- Lo que aparece por default. Id= sobreMí-->
       <app-descripcion-sobre-mi
         id="sobreMi"
@@ -22,7 +25,8 @@
       ></app-educacion>
     </div>
     <div
-      class="col-md-3  mt-5 mb-0 pb-0 d-flex flex-column justify-content-between" id="fijo"
+      class="col-md-3 mt-5 mb-0 pb-0 d-flex flex-column justify-content-between"
+      id="fijo"
     >
       <!-- Acá está la barra navegadora de la sección. Según qué elemento se cliequea es lo que se muestra-->
       <div
@@ -57,7 +61,8 @@
           <li class="nav-item">
             <a
               class="nav-link text-muted"
-              href="assets/CV_Leticia Portillo_español.pdf"
+              [href]="cvEditado"
+              target="_blank"
               download
               >CV en pdf</a
             >
@@ -68,15 +73,92 @@
       <div id="divImagen my-0 py-0">
         <i
           *ngIf="estaLogueado()"
-          class="fa-regular fa-pen-to-square verde text-success float-end"
-        > Editar imagen y cv</i>
+          class="fa-regular fa-pen-to-square verde text-success float-end m-2"
+          data-bs-toggle="modal"
+          data-bs-target="#editarCvFoto"
+        >
+          Editar imagen y cv</i
+        >
         <img
           [src]="foto"
           alt="Foto Leticia Portillo"
-          class="rounded img-fluid align-items-end mb-0 pb-0"
+          class="img-fluid align-items-end mb-0 pb-0"
           id="imgLeti"
         />
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal -->
+<div id="editarCvFoto" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title">CV y Foto de perfil</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <!-- Modal body -->
+      <form
+        (ngSubmit)="onEdit()"
+        class="custom-form"
+        method=""
+        #formEditarCvFoto="ngForm"
+      >
+        <div class="modal-body">
+          <div class="mb-3 form-group">
+            <label for="cvEditado" class="form-label">Url del cv:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cvEditado"
+              name="cvEditado"
+              [(ngModel)]="cvEditado"
+              required
+            />
+          </div>
+
+          <div class="mb-3 form-group">
+            <label for="fotoEditada" class="form-label"
+              >Url de la foto de perfil:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="fotoEditada"
+              name="fotoEditada"
+              [(ngModel)]="foto"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+          <button
+            [disabled]="formEditarCvFoto.invalid"
+            type="submit"
+            class="btn btn-success"
+            data-bs-dismiss="modal"
+            (click)="onEdit()"
+          >
+            Editar Cv y Foto
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
