@@ -1,5 +1,5 @@
 #section1{
-    
+    overflow-y: hidden;
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */    
@@ -18,4 +18,107 @@
     margin-bottom: 2rem;
     margin-left: 1rem;
     padding-bottom: 1rem;
+}
+
+.shape{
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+
+.shape img{
+    position: absolute;
+    opacity: 1;
+    width: 26px;
+    transform-origin: center;
+}
+.shape1{
+    right: 85rem;
+    top: -5.5rem;
+    animation: shape1 linear 24s infinite reverse;
+}
+.shape2{
+    right: 63rem;
+    top: -3.5rem;
+    animation: shape2 linear 56s infinite alternate;
+}
+.shape3{
+    right: 55rem;
+    top: -6.2rem;
+    animation: shape3 linear 35s infinite alternate-reverse;
+}
+.shape4{
+    right: 2rem;
+    top: -1.5rem;
+    animation: shape4 linear 42s infinite alternate-reverse;
+}
+.shape5{
+    right: 12rem;
+    top: -11.5rem;
+    animation: shape5 linear 36s infinite alternate;
+}
+.shape6{
+    right: 5rem;
+    top: -12.2rem;
+    animation: shape6 linear 25s infinite alternate;
+}
+
+@keyframes shape1{
+    33%{
+        transform: translate(20vw,-20vh) rotate(120deg);
+    }
+    66%{
+        transform: translate(30vw,40vh) rotate(240deg);
+    }
+    100%{
+        transform: translate(0vw,0vh) rotate(360deg);
+    }
+}
+
+@keyframes shape2{
+    100%{
+        transform: translate(50vh,50vh) rotate(360deg);
+    }
+}
+
+@keyframes shape3{
+    100%{
+        transform: translate(10vh,50vh) rotate(360deg);
+    }
+}
+
+
+@keyframes shape4{
+    100%{
+        transform: translate(-50vh,50vh) rotate(-60deg);
+    }
+}
+
+@keyframes shape5{
+    100%{
+        transform: translate(15vw,73vh) rotate(-10deg);
+    }
+}
+
+@keyframes shape6{
+
+
+    13%{
+        transform: translate(2vw,10vh) rotate(360deg);
+    }
+    40%{
+        transform: translate(-20vw,-5vh) rotate(120deg);
+    }
+
+    58%{
+        transform: translate(-30vw,3vh) rotate(280deg);
+    }
+
+    80%{
+        transform: translate(-55vw,-3vh) rotate(360deg);
+    }
+
+    100%{
+        transform: translate(-80vw,2vh) rotate(120deg);
+    }
 }
