@@ -42,3 +42,14 @@ i {
     font-weight: bold;
     margin: auto;
 }
+
+@media only screen and (max-width: 768px){
+.border{
+ margin-left: 0!important;
+}
+
+ .logoEducacion{
+    padding-left: 0 !important;
+ }
+
+}

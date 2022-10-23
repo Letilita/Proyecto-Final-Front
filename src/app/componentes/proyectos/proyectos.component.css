@@ -9,6 +9,7 @@
     padding:60px 0px 0px 0px;
     color: black;  
     min-height: 100vh;
+    padding-bottom: 3rem;
       
 }
 
@@ -37,4 +38,11 @@ font-weight: bold;
  input{
     font-size: 0.8rem;
 
+}
+
+@media only screen and (max-width: 768px){
+    #contenedorCarrousel{
+        margin-top: 0 !important;
+        padding-bottom: 3rem !important;
+    }
 }
